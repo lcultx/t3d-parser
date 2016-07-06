@@ -43,16 +43,33 @@ class Parser{
     private parseLine(line:string){
         if(line.indexOf(T3D.beginStr) > -1){
             var className = this.getClassNameFromString(line)
-            var obj = new T3D();
+            if(className){
+                console.log(className)
+                var obj = null;
+                switch (className) {
+                    case "BehaviorTree":
+                        obj = new BehaviorTree();
+                        break;
+                
+                    default:
+                        break;
+                }
+                this.parsingObject = obj;
+            }else{
+
+            }
+           
         }
 
         if(line.indexOf(T3D.endStr) > -1){
             
         }
+
+
     }
 
     private getClassNameFromString(str){
-        var reg = /Class(.*)\s/
+        var reg = /Class=([^\s]*)\s/
         if(reg.test(str)){
             var res = reg.exec(str);
             return res[1]
