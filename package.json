@@ -1,0 +1,12 @@
+{
+  "name": "t3d-parser",
+  "version": "1.0.0",
+  "description": "parse unreal engine t3d file ",
+  "main": "build/index.js",
+  "typings":"build/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,45 @@
+{
+   "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "allowJs": false,
+      "noImplicitAny": false,
+      "removeComments": true,
+      "noLib": false,
+      "preserveConstEnums": true,
+      "suppressImplicitAnyIndexErrors": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": false,
+      "noImplicitUseStrict": true,
+      "jsx": "react",
+      "declaration":true,
+      "outDir": "../build"
+   },
+   "formatCodeOptions": {
+      "indentSize": 3,
+      "tabSize": 3,
+      "newLineCharacter": "\r\n",
+      "convertTabsToSpaces": true,
+      "insertSpaceAfterCommaDelimiter": true,
+      "insertSpaceAfterSemicolonInForStatements": true,
+      "insertSpaceBeforeAndAfterBinaryOperators": true,
+      "insertSpaceAfterKeywordsInControlFlowStatements": true,
+      "insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+      "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+      "placeOpenBraceOnNewLineForFunctions": false,
+      "placeOpenBraceOnNewLineForControlBlocks": false
+   },
+   "buildOnSave": true,
+   "compileOnSave": true,
+   "filesGlob": [
+      "./**/*.ts"
+   ],
+   "exclude": [
+       "../build"
+   ],
+   "atom": {
+      "rewriteTsconfig": false,
+      "formatOnSave": true
+   }
+}
