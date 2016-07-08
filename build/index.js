@@ -20,12 +20,34 @@ var T3D = (function () {
         return this.name;
     };
     T3D.prototype.getClassName = function () {
-        return this.constructor.name;
+        return this.className || this.constructor.name;
     };
     T3D.prototype.getNodeByName = function (name) {
         return this.parser.nodesMap[name];
     };
     T3D.prototype.parseLine = function (line) {
+        var _this = this;
+        if (line.indexOf('ParentNode') > -1) {
+            var parentName = this.parseParentName(line);
+            var parent = this.getNodeByName(parentName);
+            this.parent.removeChild(this);
+            this.parent = parent;
+        }
+        if (line.indexOf('Children') > -1) {
+            this.addParentFinishTask(function () {
+                _this.parseChildLine(line);
+            });
+        }
+        if (line.indexOf('NodeName') > -1) {
+            this.parseNodeName(line);
+        }
+    };
+    T3D.prototype.parseNodeName = function (line) {
+        var reg = /NodeName="(.*)"/;
+        if (reg.test(line)) {
+            var res = reg.exec(line);
+            this.nodeName = res[1];
+        }
     };
     T3D.prototype.addParentFinishTask = function (callback) {
         this.parent.finishCallbacks.push(callback);
@@ -36,6 +58,27 @@ var T3D = (function () {
         var index = this.children.indexOf(obj);
         if (index > -1) {
             this.children.splice(index, 1);
+        }
+    };
+    T3D.prototype.parseParentName = function (line) {
+        var reg = /ParentNode=[^']*'[^\:]*:(.*)'/;
+        if (reg.test(line)) {
+            var res = reg.exec(line);
+            var name = res[1];
+            return name;
+        }
+    };
+    T3D.prototype.parseChildLine = function (line) {
+        var reg = /Children\((\d+)\)=\(([^=]*)=([^']*)'((.*)\:(.*))'\)/;
+        if (reg.test(line)) {
+            var res = reg.exec(line);
+            var order = parseInt(res[1]);
+            var childType = res[2];
+            var btType = res[3];
+            var asset = res[5];
+            var name = res[6];
+            var node = this.getNodeByName(name);
+            this.children[order] = node;
         }
     };
     T3D.beginStr = "Begin Object";
@@ -122,12 +165,6 @@ var BTTask_RunBehavior = (function (_super) {
         if (line.indexOf('BehaviorAsset') > -1) {
             this.parseBehaviorAsset(line);
         }
-        else if (line.indexOf('ParentNode') > -1) {
-            var parentName = this.parseParentName(line);
-            var parent = this.getNodeByName(parentName);
-            this.parent.removeChild(this);
-            this.parent = parent;
-        }
     };
     BTTask_RunBehavior.prototype.parseBehaviorAsset = function (line) {
         var reg = /BehaviorTree'(([^\.]*)\.(.*))'/;
@@ -136,14 +173,7 @@ var BTTask_RunBehavior = (function (_super) {
             this.BehaviorAsset = res[1];
             this.AssetName = res[3];
             this.AssetPath = res[2];
-        }
-    };
-    BTTask_RunBehavior.prototype.parseParentName = function (line) {
-        var reg = /ParentNode=[^']*'[^\:]*:(.*)'/;
-        if (reg.test(line)) {
-            var res = reg.exec(line);
-            var name = res[1];
-            return name;
+            this.nodeName = this.AssetName;
         }
     };
     return BTTask_RunBehavior;
@@ -154,26 +184,7 @@ var BTComposite_Sequence = (function (_super) {
         _super.apply(this, arguments);
     }
     BTComposite_Sequence.prototype.parseLine = function (line) {
-        var _this = this;
         _super.prototype.parseLine.call(this, line);
-        if (line.indexOf('Children') > -1) {
-            this.addParentFinishTask(function () {
-                _this.parseChildLine(line);
-            });
-        }
-    };
-    BTComposite_Sequence.prototype.parseChildLine = function (line) {
-        var reg = /Children\((\d+)\)=\(([^=]*)=([^']*)'((.*)\:(.*))'\)/;
-        if (reg.test(line)) {
-            var res = reg.exec(line);
-            var order = parseInt(res[1]);
-            var childType = res[2];
-            var btType = res[3];
-            var asset = res[5];
-            var name = res[6];
-            var node = this.getNodeByName(name);
-            this.children[order] = node;
-        }
     };
     return BTComposite_Sequence;
 }(T3D));
@@ -184,33 +195,126 @@ var BTComposite_Selector = (function (_super) {
     }
     BTComposite_Selector.prototype.parseLine = function (line) {
         _super.prototype.parseLine.call(this, line);
-        if (line.indexOf('NodeName') > -1) {
-            this.parseNodeName(line);
-        }
-        else if (line.indexOf('ParentNode') > -1) {
-            var parentName = this.parseParentName(line);
-            var parent = this.getNodeByName(parentName);
-            this.parent.removeChild(this);
-            this.parent = parent;
-        }
-    };
-    BTComposite_Selector.prototype.parseNodeName = function (line) {
-        var reg = /NodeName="(.*)"/;
-        if (reg.test(line)) {
-            var res = reg.exec(line);
-            this.nodeName = res[1];
-        }
-    };
-    BTComposite_Selector.prototype.parseParentName = function (line) {
-        var reg = /ParentNode=[^']*'[^\:]*:(.*)'/;
-        if (reg.test(line)) {
-            var res = reg.exec(line);
-            var name = res[1];
-            return name;
-        }
     };
     return BTComposite_Selector;
 }(T3D));
+var BehaviorTreeGraphNode_Task = (function (_super) {
+    __extends(BehaviorTreeGraphNode_Task, _super);
+    function BehaviorTreeGraphNode_Task() {
+        _super.apply(this, arguments);
+    }
+    return BehaviorTreeGraphNode_Task;
+}(T3D));
+var Blueprint = (function (_super) {
+    __extends(Blueprint, _super);
+    function Blueprint() {
+        _super.apply(this, arguments);
+    }
+    return Blueprint;
+}(T3D));
+var BlackboardData = (function (_super) {
+    __extends(BlackboardData, _super);
+    function BlackboardData() {
+        _super.apply(this, arguments);
+        this.Keys = [];
+    }
+    BlackboardData.prototype.parseLine = function (line) {
+        _super.prototype.parseLine.call(this, line);
+        if (line.indexOf('Keys(') > -1) {
+            this.parseKeys(line);
+        }
+    };
+    BlackboardData.prototype.parseKeys = function (line) {
+        var reg = /Keys\((\d+)\)=\(EntryName="([^"]*)",KeyType=BlackboardKeyType_([^']+)'/;
+        if (reg.test(line)) {
+            var res = reg.exec(line);
+            this.Keys.push({
+                name: res[2],
+                type: res[3]
+            });
+        }
+    };
+    return BlackboardData;
+}(T3D));
+var CustomNode = (function (_super) {
+    __extends(CustomNode, _super);
+    function CustomNode() {
+        _super.apply(this, arguments);
+        this.args = {};
+    }
+    CustomNode.prototype.parseLine = function (line) {
+        _super.prototype.parseLine.call(this, line);
+        if (line.indexOf('ParentNode') > -1) {
+        }
+        else if (line.indexOf('TreeAsset') > -1) {
+        }
+        else {
+            this.parseArguments(line);
+        }
+    };
+    CustomNode.prototype.parseArguments = function (line) {
+        var reg = /([^=\s]*)=(.*)/;
+        if (reg.test(line)) {
+            var res = reg.exec(line);
+            var key = res[1];
+            var val = res[2];
+            if (!isNaN(val)) {
+                val = parseFloat(val);
+            }
+            this.args[key] = val;
+        }
+    };
+    return CustomNode;
+}(T3D));
+var 定义重合_C = (function (_super) {
+    __extends(定义重合_C, _super);
+    function 定义重合_C() {
+        _super.apply(this, arguments);
+    }
+    return 定义重合_C;
+}(CustomNode));
+var 定义跟随_C = (function (_super) {
+    __extends(定义跟随_C, _super);
+    function 定义跟随_C() {
+        _super.apply(this, arguments);
+    }
+    return 定义跟随_C;
+}(CustomNode));
+var 定义衣柜宽度_C = (function (_super) {
+    __extends(定义衣柜宽度_C, _super);
+    function 定义衣柜宽度_C() {
+        _super.apply(this, arguments);
+    }
+    return 定义衣柜宽度_C;
+}(CustomNode));
+var 定义窗帘宽度_C = (function (_super) {
+    __extends(定义窗帘宽度_C, _super);
+    function 定义窗帘宽度_C() {
+        _super.apply(this, arguments);
+    }
+    return 定义窗帘宽度_C;
+}(CustomNode));
+var 定义床与床头柜宽度_C = (function (_super) {
+    __extends(定义床与床头柜宽度_C, _super);
+    function 定义床与床头柜宽度_C() {
+        _super.apply(this, arguments);
+    }
+    return 定义床与床头柜宽度_C;
+}(CustomNode));
+var 定义吸附_C = (function (_super) {
+    __extends(定义吸附_C, _super);
+    function 定义吸附_C() {
+        _super.apply(this, arguments);
+    }
+    return 定义吸附_C;
+}(CustomNode));
+var 定义背景墙_C = (function (_super) {
+    __extends(定义背景墙_C, _super);
+    function 定义背景墙_C() {
+        _super.apply(this, arguments);
+    }
+    return 定义背景墙_C;
+}(CustomNode));
 var sysClazzes = {
     BehaviorTree: BehaviorTree,
     BehaviorTreeGraph: BehaviorTreeGraph,
@@ -223,12 +327,22 @@ var sysClazzes = {
     BehaviorTreeGraphNode_SubtreeTask: BehaviorTreeGraphNode_SubtreeTask,
     BTTask_RunBehavior: BTTask_RunBehavior,
     BTComposite_Sequence: BTComposite_Sequence,
-    BTComposite_Selector: BTComposite_Selector
+    BTComposite_Selector: BTComposite_Selector,
+    定义重合_C: 定义重合_C,
+    定义跟随_C: 定义跟随_C,
+    定义衣柜宽度_C: 定义衣柜宽度_C,
+    定义窗帘宽度_C: 定义窗帘宽度_C,
+    定义床与床头柜宽度_C: 定义床与床头柜宽度_C,
+    定义吸附_C: 定义吸附_C,
+    定义背景墙_C: 定义背景墙_C,
+    BehaviorTreeGraphNode_Task: BehaviorTreeGraphNode_Task,
+    BlackboardData: BlackboardData
 };
 var Parser = (function () {
     function Parser() {
         this.objectStack = [];
         this.nodesMap = {};
+        this.endIndex = [];
     }
     Parser.prototype.parse = function (text) {
         var lines = text.split('\n');
@@ -252,6 +366,7 @@ var Parser = (function () {
                 obj = new T3D(this);
             }
             obj.Name = name;
+            obj.className = className;
             this.nodesMap[name] = obj;
         }
         else if (name) {
@@ -307,11 +422,46 @@ var Parser = (function () {
             return null;
         }
     };
-    Parser.prototype.test = function (root) {
-        if (root instanceof BehaviorTree) {
-            root.children.forEach(function (node) {
+    Parser.prototype.print = function (root) {
+        var _this = this;
+        var prev = 0;
+        if (root instanceof BehaviorTree || root instanceof BlackboardData) {
+            console.log(this.getPrevStr(prev) + this.getPrintName(root));
+            prev++;
+            root.children.forEach(function (item) {
+                if (item instanceof BTComposite_Selector || item instanceof BTComposite_Sequence) {
+                    console.log(_this.getPrevStr(prev) + _this.getPrintName(item));
+                    _this.printNode(prev, item);
+                }
             });
         }
+    };
+    Parser.prototype.getPrintName = function (node) {
+        if (node.nodeName != undefined) {
+            return node.nodeName;
+        }
+        else {
+            return node.Name;
+        }
+    };
+    Parser.prototype.getPrevStr = function (num) {
+        var str = '--|';
+        for (var i = 0; i < num; i++) {
+            str += '--';
+            if (this.endIndex.indexOf(i) > -1) {
+                str += '|';
+            }
+        }
+        this.endIndex.push(i);
+        return str;
+    };
+    Parser.prototype.printNode = function (prev, node) {
+        var _this = this;
+        prev++;
+        node.children.forEach(function (item) {
+            console.log(_this.getPrevStr(prev) + _this.getPrintName(item));
+            _this.printNode(prev, item);
+        });
     };
     return Parser;
 }());

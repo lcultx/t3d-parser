@@ -24,6 +24,7 @@ class T3D {
     public parent: T3D;
 
     public Name: string;
+    public className: string;
 
     public nodeName: string;
     public parentNode: T3D;
@@ -33,7 +34,7 @@ class T3D {
     }
 
     public getClassName(): string {
-        return (this as any).constructor.name;
+        return this.className || (this as any).constructor.name;
     }
 
     public getNodeByName(name) {
@@ -41,7 +42,31 @@ class T3D {
     }
 
     public parseLine(line: string) {
-        // console.log(this,'parse line: ' + line);
+        if (line.indexOf('ParentNode') > -1) {
+            var parentName = this.parseParentName(line);
+            var parent = this.getNodeByName(parentName);
+            this.parent.removeChild(this);
+            this.parent = parent;
+        }
+        if (line.indexOf('Children') > -1) {
+            this.addParentFinishTask(() => {
+                this.parseChildLine(line);
+            })
+        }
+
+
+        if (line.indexOf('NodeName') > -1) {
+            this.parseNodeName(line);
+        }
+    }
+
+
+    public parseNodeName(line: string) {
+        var reg = /NodeName="(.*)"/
+        if (reg.test(line)) {
+            var res = reg.exec(line);
+            this.nodeName = res[1]
+        }
     }
 
     public addParentFinishTask(callback: Function) {
@@ -56,6 +81,29 @@ class T3D {
         var index = this.children.indexOf(obj);
         if (index > -1) {
             this.children.splice(index, 1);
+        }
+    }
+
+    private parseParentName(line: string) {
+        var reg = /ParentNode=[^']*'[^\:]*:(.*)'/
+        if (reg.test(line)) {
+            var res = reg.exec(line);
+            var name = res[1];
+            return name;
+        }
+    }
+
+    private parseChildLine(line: string) {
+        var reg = /Children\((\d+)\)=\(([^=]*)=([^']*)'((.*)\:(.*))'\)/
+        if (reg.test(line)) {
+            var res = reg.exec(line);
+            var order = parseInt(res[1]);
+            var childType = res[2];
+            var btType = res[3];
+            var asset = res[5];
+            var name = res[6];
+            var node = this.getNodeByName(name);
+            this.children[order] = node;
         }
     }
 }
@@ -108,11 +156,6 @@ class BTTask_RunBehavior extends T3D {
         super.parseLine(line);
         if (line.indexOf('BehaviorAsset') > -1) {
             this.parseBehaviorAsset(line);
-        } else if (line.indexOf('ParentNode') > -1) {
-            var parentName = this.parseParentName(line);
-            var parent = this.getNodeByName(parentName);
-            this.parent.removeChild(this);
-            this.parent = parent;
         }
     }
 
@@ -123,15 +166,8 @@ class BTTask_RunBehavior extends T3D {
             this.BehaviorAsset = res[1];
             this.AssetName = res[3];
             this.AssetPath = res[2];
-        }
-    }
 
-    private parseParentName(line: string) {
-        var reg = /ParentNode=[^']*'[^\:]*:(.*)'/
-        if (reg.test(line)) {
-            var res = reg.exec(line);
-            var name = res[1];
-            return name;
+            this.nodeName = this.AssetName;
         }
     }
 
@@ -140,59 +176,107 @@ class BTTask_RunBehavior extends T3D {
 class BTComposite_Sequence extends T3D {
     public parseLine(line: string) {
         super.parseLine(line);
-        if (line.indexOf('Children') > -1) {
-            this.addParentFinishTask(() => {
-                this.parseChildLine(line);
-            })
-        }
+
     }
 
-    private parseChildLine(line: string) {
-        var reg = /Children\((\d+)\)=\(([^=]*)=([^']*)'((.*)\:(.*))'\)/
-        if (reg.test(line)) {
-            var res = reg.exec(line);
-            var order = parseInt(res[1]);
-            var childType = res[2];
-            var btType = res[3];
-            var asset = res[5];
-            var name = res[6];
-            var node = this.getNodeByName(name);
-            this.children[order] = node;
-        }
-    }
+
 }
 
 class BTComposite_Selector extends T3D {
     public parseLine(line: string) {
         super.parseLine(line);
-        if (line.indexOf('NodeName') > -1) {
-            this.parseNodeName(line);
-        } else if (line.indexOf('ParentNode') > -1) {
-            var parentName = this.parseParentName(line);
-            var parent = this.getNodeByName(parentName);
-            this.parent.removeChild(this);
-            this.parent = parent;
-        }
     }
 
-    public parseNodeName(line: string) {
-        var reg = /NodeName="(.*)"/
-        if (reg.test(line)) {
-            var res = reg.exec(line);
-            this.nodeName = res[1]
+
+}
+
+class BehaviorTreeGraphNode_Task extends T3D {
+
+}
+
+//TODO
+class Blueprint extends T3D {
+
+}
+
+class BlackboardData extends T3D {
+
+    public Keys: Array<{ name: string, type: string }> = [];
+
+    public parseLine(line: string) {
+        super.parseLine(line);
+        if (line.indexOf('Keys(') > -1) {
+            this.parseKeys(line);
         }
     }
-    private parseParentName(line: string) {
-        var reg = /ParentNode=[^']*'[^\:]*:(.*)'/
+    private parseKeys(line: string) {
+        var reg = /Keys\((\d+)\)=\(EntryName="([^"]*)",KeyType=BlackboardKeyType_([^']+)'/
         if (reg.test(line)) {
             var res = reg.exec(line);
-            var name = res[1];
-            return name;
+            this.Keys.push({
+                name: res[2],
+                type: res[3]
+            })
         }
     }
 }
 
+class CustomNode extends T3D {
 
+    public args: { [key: string]: any } = {};
+
+    public parseLine(line: string) {
+        super.parseLine(line);
+        if (line.indexOf('ParentNode') > -1) {
+
+        } else if (line.indexOf('TreeAsset') > -1) {
+
+        } else {
+            this.parseArguments(line);
+        }
+    }
+
+    private parseArguments(line: string) {
+        var reg = /([^=\s]*)=(.*)/
+        if (reg.test(line)) {
+            var res = reg.exec(line);
+            var key = res[1];
+            var val: any = res[2];
+            if (!isNaN(val)) {
+                val = parseFloat(val)
+            }
+            this.args[key] = val;
+        }
+    }
+}
+
+class 定义重合_C extends CustomNode {
+
+}
+
+class 定义跟随_C extends CustomNode {
+
+}
+
+class 定义衣柜宽度_C extends CustomNode {
+
+}
+
+class 定义窗帘宽度_C extends CustomNode {
+
+}
+
+class 定义床与床头柜宽度_C extends CustomNode {
+
+}
+
+class 定义吸附_C extends CustomNode {
+
+}
+
+class 定义背景墙_C extends CustomNode{
+
+}
 
 var sysClazzes = {
 
@@ -212,6 +296,16 @@ var sysClazzes = {
     , BTComposite_Sequence: BTComposite_Sequence
 
     , BTComposite_Selector: BTComposite_Selector
+
+    , 定义重合_C: 定义重合_C
+    , 定义跟随_C: 定义跟随_C
+    , 定义衣柜宽度_C: 定义衣柜宽度_C
+    , 定义窗帘宽度_C: 定义窗帘宽度_C
+    , 定义床与床头柜宽度_C: 定义床与床头柜宽度_C
+    , 定义吸附_C: 定义吸附_C
+    ,定义背景墙_C:定义背景墙_C
+    , BehaviorTreeGraphNode_Task: BehaviorTreeGraphNode_Task
+    , BlackboardData: BlackboardData
 }
 
 class Parser {
@@ -242,10 +336,11 @@ class Parser {
             if (clazz != undefined) {
                 obj = new clazz(this);
             } else {
-                console.log('No Class: ',className)
+                console.log('No Class: ', className)
                 obj = new T3D(this);
             }
             obj.Name = name;
+            obj.className = className;
             this.nodesMap[name] = obj;
         } else if (name) {
             obj = this.nodesMap[name]
@@ -321,12 +416,50 @@ class Parser {
         }
     }
 
-    public test(root: T3D) {
-        if (root instanceof BehaviorTree) {
-            root.children.forEach(function (node) {
-                // console.log(node.Name)
+    public print(root: T3D) {
+        var prev = 0;
+        if (root instanceof BehaviorTree || root instanceof BlackboardData) {
+            console.log(this.getPrevStr(prev) + this.getPrintName(root) );
+            prev++;
+            root.children.forEach((item) => {
+                if (item instanceof BTComposite_Selector || item instanceof BTComposite_Sequence) {
+                    console.log(this.getPrevStr(prev) + this.getPrintName(item) )
+                    this.printNode(prev, item);
+                }
             })
         }
+    }
+
+    private getPrintName(node){
+       // console.log(node)
+        if(node.nodeName != undefined){
+            return node.nodeName;
+        }else{
+            return node.Name;
+        }
+    }
+
+    private endIndex = []
+
+    private getPrevStr(num: number) {
+        var str = '--|';
+        for (var i = 0; i < num; i++) {
+            str += '--';
+            if(this.endIndex.indexOf(i) > -1){
+                str += '|'
+            }
+        }
+        this.endIndex.push(i);
+        //str += '|'
+        return str;
+    }
+
+    public printNode(prev, node) {
+        prev++;
+        node.children.forEach((item) => {
+            console.log(this.getPrevStr(prev) + this.getPrintName(item) )
+            this.printNode(prev, item);
+        })
     }
 }
 
