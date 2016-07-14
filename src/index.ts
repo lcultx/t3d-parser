@@ -19,6 +19,8 @@ class T3D {
 
     public isRoot: boolean = false;
 
+    public decorators:Array<T3D> = [];
+
     public children: Array<T3D> = [];
 
     public parent: T3D;
@@ -93,8 +95,22 @@ class T3D {
         }
     }
 
+    // Children(0)=(ChildComposite=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_3')
+    // Children(0)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_13',Decorators=(判断窗户长度_C'卧室布局行为树:判断窗户长度_C_0'))
     private parseChildLine(line: string) {
         var reg = /Children\((\d+)\)=\(([^=]*)=([^']*)'((.*)\:(.*))'\)/
+        var decorators = [];
+        if(line.indexOf('Decorators') > -1){
+            //TODO 支持多个装饰器
+            var dreg = /Decorators=([^']*)'((.*)\:(.*))'/
+            var res = dreg.exec(line);
+            var name = res[4];
+            var node = this.getNodeByName(name);
+            decorators.push(node);            
+            line = line.replace(/,Decorators.*'\)/,'')
+        }
+
+      
         if (reg.test(line)) {
             var res = reg.exec(line);
             var order = parseInt(res[1]);
@@ -103,6 +119,8 @@ class T3D {
             var asset = res[5];
             var name = res[6];
             var node = this.getNodeByName(name);
+            node.decorators = decorators;
+            console.log(decorators)
             this.children[order] = node;
         }
     }
@@ -178,17 +196,21 @@ class BTComposite_Sequence extends T3D {
         super.parseLine(line);
 
     }
-
-
 }
 
 class BTComposite_Selector extends T3D {
     public parseLine(line: string) {
         super.parseLine(line);
     }
-
-
 }
+
+class BTDecorator_Blackboard extends T3D{
+    public parseLine(line:string){
+        super.parseLine(line);
+        console.log(line)
+    }
+}
+
 
 class BehaviorTreeGraphNode_Task extends T3D {
 
@@ -250,33 +272,8 @@ class CustomNode extends T3D {
     }
 }
 
-class 定义重合_C extends CustomNode {
 
-}
 
-class 定义跟随_C extends CustomNode {
-
-}
-
-class 定义衣柜宽度_C extends CustomNode {
-
-}
-
-class 定义窗帘宽度_C extends CustomNode {
-
-}
-
-class 定义床与床头柜宽度_C extends CustomNode {
-
-}
-
-class 定义吸附_C extends CustomNode {
-
-}
-
-class 定义背景墙_C extends CustomNode{
-
-}
 
 var sysClazzes = {
 
@@ -297,15 +294,9 @@ var sysClazzes = {
 
     , BTComposite_Selector: BTComposite_Selector
 
-    , 定义重合_C: 定义重合_C
-    , 定义跟随_C: 定义跟随_C
-    , 定义衣柜宽度_C: 定义衣柜宽度_C
-    , 定义窗帘宽度_C: 定义窗帘宽度_C
-    , 定义床与床头柜宽度_C: 定义床与床头柜宽度_C
-    , 定义吸附_C: 定义吸附_C
-    ,定义背景墙_C:定义背景墙_C
     , BehaviorTreeGraphNode_Task: BehaviorTreeGraphNode_Task
     , BlackboardData: BlackboardData
+ //   , BTDecorator_Blackboard:BTDecorator_Blackboard
 }
 
 class Parser {
@@ -337,7 +328,7 @@ class Parser {
                 obj = new clazz(this);
             } else {
                 console.log('No Class: ', className)
-                obj = new T3D(this);
+                obj = new CustomNode(this);
             }
             obj.Name = name;
             obj.className = className;
@@ -419,22 +410,66 @@ class Parser {
     public print(root: T3D) {
         var prev = 0;
         if (root instanceof BehaviorTree || root instanceof BlackboardData) {
-            console.log(this.getPrevStr(prev) + this.getPrintName(root) );
+            console.log(this.getPrevStr(prev) + this.getPrintName(root));
             prev++;
             root.children.forEach((item) => {
                 if (item instanceof BTComposite_Selector || item instanceof BTComposite_Sequence) {
-                    console.log(this.getPrevStr(prev) + this.getPrintName(item) )
+                    console.log(this.getPrevStr(prev) + this.getPrintName(item))
                     this.printNode(prev, item);
                 }
             })
         }
     }
 
-    private getPrintName(node){
-       // console.log(node)
-        if(node.nodeName != undefined){
+    public toJson(root) {
+        var json: any = {};
+        json.name = root.Name;
+        json.className = root.className;
+        json.nodeName = root.nodeName;
+        json.children = [];
+        if (root instanceof BehaviorTree || root instanceof BlackboardData) {
+
+            root.children.forEach((item) => {
+                if (item instanceof BTComposite_Selector || item instanceof BTComposite_Sequence) {
+                    json.children.push(this.node2Json(item))
+                }
+            })
+        }
+
+        return json;
+
+    }
+
+
+
+    private node2Json(node: T3D) {
+        var json: any = {};
+        json.name = node.Name;
+        json.className = node.className;
+        json.nodeName = node.nodeName;
+        if (node instanceof CustomNode) {
+            json.args = (node as CustomNode).args;
+        }
+        //if(node.children.length > 0){
+        json.children = [];
+        json.decorators = [];
+    
+        node.children.forEach((item) => {
+            json.children.push(this.node2Json(item))
+        })
+
+        node.decorators.forEach((item) => {
+            json.decorators.push(this.node2Json(item))
+        });
+        //}
+        return json;
+    }
+
+    private getPrintName(node) {
+        // console.log(node)
+        if (node.nodeName != undefined) {
             return node.nodeName;
-        }else{
+        } else {
             return node.Name;
         }
     }
@@ -445,7 +480,7 @@ class Parser {
         var str = '--|';
         for (var i = 0; i < num; i++) {
             str += '--';
-            if(this.endIndex.indexOf(i) > -1){
+            if (this.endIndex.indexOf(i) > -1) {
                 str += '|'
             }
         }
@@ -457,10 +492,12 @@ class Parser {
     public printNode(prev, node) {
         prev++;
         node.children.forEach((item) => {
-            console.log(this.getPrevStr(prev) + this.getPrintName(item) )
+            console.log(this.getPrevStr(prev) + this.getPrintName(item))
             this.printNode(prev, item);
         })
     }
+
+
 }
 
 

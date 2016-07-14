@@ -6,6 +6,7 @@ declare class T3D {
     constructor(parser: Parser);
     finishCallbacks: Array<Function>;
     isRoot: boolean;
+    decorators: Array<T3D>;
     children: Array<T3D>;
     parent: T3D;
     Name: string;
@@ -56,6 +57,9 @@ declare class BTComposite_Sequence extends T3D {
 declare class BTComposite_Selector extends T3D {
     parseLine(line: string): void;
 }
+declare class BTDecorator_Blackboard extends T3D {
+    parseLine(line: string): void;
+}
 declare class BehaviorTreeGraphNode_Task extends T3D {
 }
 declare class Blueprint extends T3D {
@@ -75,20 +79,6 @@ declare class CustomNode extends T3D {
     parseLine(line: string): void;
     private parseArguments(line);
 }
-declare class 定义重合_C extends CustomNode {
-}
-declare class 定义跟随_C extends CustomNode {
-}
-declare class 定义衣柜宽度_C extends CustomNode {
-}
-declare class 定义窗帘宽度_C extends CustomNode {
-}
-declare class 定义床与床头柜宽度_C extends CustomNode {
-}
-declare class 定义吸附_C extends CustomNode {
-}
-declare class 定义背景墙_C extends CustomNode {
-}
 declare var sysClazzes: {
     BehaviorTree: typeof BehaviorTree;
     BehaviorTreeGraph: typeof BehaviorTreeGraph;
@@ -102,13 +92,6 @@ declare var sysClazzes: {
     BTTask_RunBehavior: typeof BTTask_RunBehavior;
     BTComposite_Sequence: typeof BTComposite_Sequence;
     BTComposite_Selector: typeof BTComposite_Selector;
-    定义重合_C: typeof 定义重合_C;
-    定义跟随_C: typeof 定义跟随_C;
-    定义衣柜宽度_C: typeof 定义衣柜宽度_C;
-    定义窗帘宽度_C: typeof 定义窗帘宽度_C;
-    定义床与床头柜宽度_C: typeof 定义床与床头柜宽度_C;
-    定义吸附_C: typeof 定义吸附_C;
-    定义背景墙_C: typeof 定义背景墙_C;
     BehaviorTreeGraphNode_Task: typeof BehaviorTreeGraphNode_Task;
     BlackboardData: typeof BlackboardData;
 };
@@ -126,6 +109,8 @@ declare class Parser {
     private getClassNameFromString(str);
     private getNameFromString(str);
     print(root: T3D): void;
+    toJson(root: any): any;
+    private node2Json(node);
     private getPrintName(node);
     private endIndex;
     private getPrevStr(num);

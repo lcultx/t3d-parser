@@ -7,6 +7,7 @@ var T3D = (function () {
     function T3D(parser) {
         this.finishCallbacks = [];
         this.isRoot = false;
+        this.decorators = [];
         this.children = [];
         this.parser = parser;
     }
@@ -70,6 +71,15 @@ var T3D = (function () {
     };
     T3D.prototype.parseChildLine = function (line) {
         var reg = /Children\((\d+)\)=\(([^=]*)=([^']*)'((.*)\:(.*))'\)/;
+        var decorators = [];
+        if (line.indexOf('Decorators') > -1) {
+            var dreg = /Decorators=([^']*)'((.*)\:(.*))'/;
+            var res = dreg.exec(line);
+            var name = res[4];
+            var node = this.getNodeByName(name);
+            decorators.push(node);
+            line = line.replace(/,Decorators.*'\)/, '');
+        }
         if (reg.test(line)) {
             var res = reg.exec(line);
             var order = parseInt(res[1]);
@@ -78,6 +88,8 @@ var T3D = (function () {
             var asset = res[5];
             var name = res[6];
             var node = this.getNodeByName(name);
+            node.decorators = decorators;
+            console.log(decorators);
             this.children[order] = node;
         }
     };
@@ -198,6 +210,17 @@ var BTComposite_Selector = (function (_super) {
     };
     return BTComposite_Selector;
 }(T3D));
+var BTDecorator_Blackboard = (function (_super) {
+    __extends(BTDecorator_Blackboard, _super);
+    function BTDecorator_Blackboard() {
+        _super.apply(this, arguments);
+    }
+    BTDecorator_Blackboard.prototype.parseLine = function (line) {
+        _super.prototype.parseLine.call(this, line);
+        console.log(line);
+    };
+    return BTDecorator_Blackboard;
+}(T3D));
 var BehaviorTreeGraphNode_Task = (function (_super) {
     __extends(BehaviorTreeGraphNode_Task, _super);
     function BehaviorTreeGraphNode_Task() {
@@ -266,55 +289,6 @@ var CustomNode = (function (_super) {
     };
     return CustomNode;
 }(T3D));
-var 定义重合_C = (function (_super) {
-    __extends(定义重合_C, _super);
-    function 定义重合_C() {
-        _super.apply(this, arguments);
-    }
-    return 定义重合_C;
-}(CustomNode));
-var 定义跟随_C = (function (_super) {
-    __extends(定义跟随_C, _super);
-    function 定义跟随_C() {
-        _super.apply(this, arguments);
-    }
-    return 定义跟随_C;
-}(CustomNode));
-var 定义衣柜宽度_C = (function (_super) {
-    __extends(定义衣柜宽度_C, _super);
-    function 定义衣柜宽度_C() {
-        _super.apply(this, arguments);
-    }
-    return 定义衣柜宽度_C;
-}(CustomNode));
-var 定义窗帘宽度_C = (function (_super) {
-    __extends(定义窗帘宽度_C, _super);
-    function 定义窗帘宽度_C() {
-        _super.apply(this, arguments);
-    }
-    return 定义窗帘宽度_C;
-}(CustomNode));
-var 定义床与床头柜宽度_C = (function (_super) {
-    __extends(定义床与床头柜宽度_C, _super);
-    function 定义床与床头柜宽度_C() {
-        _super.apply(this, arguments);
-    }
-    return 定义床与床头柜宽度_C;
-}(CustomNode));
-var 定义吸附_C = (function (_super) {
-    __extends(定义吸附_C, _super);
-    function 定义吸附_C() {
-        _super.apply(this, arguments);
-    }
-    return 定义吸附_C;
-}(CustomNode));
-var 定义背景墙_C = (function (_super) {
-    __extends(定义背景墙_C, _super);
-    function 定义背景墙_C() {
-        _super.apply(this, arguments);
-    }
-    return 定义背景墙_C;
-}(CustomNode));
 var sysClazzes = {
     BehaviorTree: BehaviorTree,
     BehaviorTreeGraph: BehaviorTreeGraph,
@@ -328,13 +302,6 @@ var sysClazzes = {
     BTTask_RunBehavior: BTTask_RunBehavior,
     BTComposite_Sequence: BTComposite_Sequence,
     BTComposite_Selector: BTComposite_Selector,
-    定义重合_C: 定义重合_C,
-    定义跟随_C: 定义跟随_C,
-    定义衣柜宽度_C: 定义衣柜宽度_C,
-    定义窗帘宽度_C: 定义窗帘宽度_C,
-    定义床与床头柜宽度_C: 定义床与床头柜宽度_C,
-    定义吸附_C: 定义吸附_C,
-    定义背景墙_C: 定义背景墙_C,
     BehaviorTreeGraphNode_Task: BehaviorTreeGraphNode_Task,
     BlackboardData: BlackboardData
 };
@@ -363,7 +330,7 @@ var Parser = (function () {
             }
             else {
                 console.log('No Class: ', className);
-                obj = new T3D(this);
+                obj = new CustomNode(this);
             }
             obj.Name = name;
             obj.className = className;
@@ -435,6 +402,41 @@ var Parser = (function () {
                 }
             });
         }
+    };
+    Parser.prototype.toJson = function (root) {
+        var _this = this;
+        var json = {};
+        json.name = root.Name;
+        json.className = root.className;
+        json.nodeName = root.nodeName;
+        json.children = [];
+        if (root instanceof BehaviorTree || root instanceof BlackboardData) {
+            root.children.forEach(function (item) {
+                if (item instanceof BTComposite_Selector || item instanceof BTComposite_Sequence) {
+                    json.children.push(_this.node2Json(item));
+                }
+            });
+        }
+        return json;
+    };
+    Parser.prototype.node2Json = function (node) {
+        var _this = this;
+        var json = {};
+        json.name = node.Name;
+        json.className = node.className;
+        json.nodeName = node.nodeName;
+        if (node instanceof CustomNode) {
+            json.args = node.args;
+        }
+        json.children = [];
+        json.decorators = [];
+        node.children.forEach(function (item) {
+            json.children.push(_this.node2Json(item));
+        });
+        node.decorators.forEach(function (item) {
+            json.decorators.push(_this.node2Json(item));
+        });
+        return json;
     };
     Parser.prototype.getPrintName = function (node) {
         if (node.nodeName != undefined) {

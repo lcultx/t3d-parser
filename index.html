@@ -11,15 +11,41 @@
             var root = parser.parse(document.getElementById('text').value);
             console.log(root)
             parser.print(root);
-
+            var json = parser.toJson(root);
+            console.log(json);
+            console.log(JSON.stringify(json))
         }
     </script>
 </head>
 
 <body>
     <textarea name="" id="text" cols="30" rows="10">
-Begin Object Class=BehaviorTree Name="决定A1背景墙"
+Begin Object Class=BehaviorTree Name="卧室布局行为树"
    Begin Object Class=BehaviorTreeGraph Name="Behavior Tree"
+      Begin Object Class=BehaviorTreeGraphNode_CompositeDecorator Name="BehaviorTreeGraphNode_CompositeDecorator_0"
+         Begin Object Class=BehaviorTreeDecoratorGraph Name="CompositeDecorator"
+            Begin Object Class=BehaviorTreeDecoratorGraphNode_Logic Name="BehaviorTreeDecoratorGraphNode_Logic_0"
+               Begin Object Class=EdGraphPin Name="EdGraphPin_0"
+               End Object
+            End Object
+         End Object
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_CompositeDecorator Name="BehaviorTreeGraphNode_CompositeDecorator_1"
+         Begin Object Class=BehaviorTreeDecoratorGraph Name="CompositeDecorator"
+            Begin Object Class=BehaviorTreeDecoratorGraphNode_Logic Name="BehaviorTreeDecoratorGraphNode_Logic_0"
+               Begin Object Class=EdGraphPin Name="EdGraphPin_0"
+               End Object
+            End Object
+         End Object
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_CompositeDecorator Name="BehaviorTreeGraphNode_CompositeDecorator_6"
+         Begin Object Class=BehaviorTreeDecoratorGraph Name="CompositeDecorator"
+            Begin Object Class=BehaviorTreeDecoratorGraphNode_Logic Name="BehaviorTreeDecoratorGraphNode_Logic_1"
+               Begin Object Class=EdGraphPin Name="EdGraphPin_1"
+               End Object
+            End Object
+         End Object
+      End Object
       Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_0"
          Begin Object Class=EdGraphPin Name="EdGraphPin_1"
          End Object
@@ -36,6 +62,12 @@ Begin Object Class=BehaviorTree Name="决定A1背景墙"
          Begin Object Class=EdGraphPin Name="EdGraphPin_19"
          End Object
          Begin Object Class=EdGraphPin Name="EdGraphPin_20"
+         End Object
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_11"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_42"
+         End Object
+         Begin Object Class=EdGraphPin Name="EdGraphPin_43"
          End Object
       End Object
       Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_12"
@@ -56,10 +88,22 @@ Begin Object Class=BehaviorTree Name="决定A1背景墙"
          Begin Object Class=EdGraphPin Name="EdGraphPin_28"
          End Object
       End Object
+      Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_15"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_48"
+         End Object
+         Begin Object Class=EdGraphPin Name="EdGraphPin_49"
+         End Object
+      End Object
       Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_16"
          Begin Object Class=EdGraphPin Name="EdGraphPin_31"
          End Object
          Begin Object Class=EdGraphPin Name="EdGraphPin_32"
+         End Object
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_17"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_40"
+         End Object
+         Begin Object Class=EdGraphPin Name="EdGraphPin_41"
          End Object
       End Object
       Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_18"
@@ -68,10 +112,22 @@ Begin Object Class=BehaviorTree Name="决定A1背景墙"
          Begin Object Class=EdGraphPin Name="EdGraphPin_36"
          End Object
       End Object
+      Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_19"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_46"
+         End Object
+         Begin Object Class=EdGraphPin Name="EdGraphPin_47"
+         End Object
+      End Object
       Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_2"
          Begin Object Class=EdGraphPin Name="EdGraphPin_5"
          End Object
          Begin Object Class=EdGraphPin Name="EdGraphPin_6"
+         End Object
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_25"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_2"
+         End Object
+         Begin Object Class=EdGraphPin Name="EdGraphPin_3"
          End Object
       End Object
       Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_27"
@@ -92,6 +148,12 @@ Begin Object Class=BehaviorTree Name="决定A1背景墙"
          Begin Object Class=EdGraphPin Name="EdGraphPin_1"
          End Object
       End Object
+      Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_6"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_52"
+         End Object
+         Begin Object Class=EdGraphPin Name="EdGraphPin_53"
+         End Object
+      End Object
       Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_7"
          Begin Object Class=EdGraphPin Name="EdGraphPin_13"
          End Object
@@ -104,40 +166,98 @@ Begin Object Class=BehaviorTree Name="决定A1背景墙"
          Begin Object Class=EdGraphPin Name="EdGraphPin_16"
          End Object
       End Object
+      Begin Object Class=BehaviorTreeGraphNode_Composite Name="BehaviorTreeGraphNode_Composite_9"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_44"
+         End Object
+         Begin Object Class=EdGraphPin Name="EdGraphPin_45"
+         End Object
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Decorator Name="BehaviorTreeGraphNode_Decorator_124"
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Decorator Name="BehaviorTreeGraphNode_Decorator_145"
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Decorator Name="BehaviorTreeGraphNode_Decorator_166"
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Decorator Name="BehaviorTreeGraphNode_Decorator_207"
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Decorator Name="BehaviorTreeGraphNode_Decorator_228"
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Decorator Name="BehaviorTreeGraphNode_Decorator_249"
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Decorator Name="BehaviorTreeGraphNode_Decorator_292"
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Decorator Name="BehaviorTreeGraphNode_Decorator_314"
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Decorator Name="BehaviorTreeGraphNode_Decorator_336"
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Decorator Name="BehaviorTreeGraphNode_Decorator_358"
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Decorator Name="BehaviorTreeGraphNode_Decorator_380"
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Decorator Name="BehaviorTreeGraphNode_Decorator_62"
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Decorator Name="BehaviorTreeGraphNode_Decorator_83"
+      End Object
       Begin Object Class=BehaviorTreeGraphNode_Root Name="BehaviorTreeGraphNode_Root_0"
          Begin Object Class=EdGraphPin Name="EdGraphPin_0"
          End Object
       End Object
-      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_0"
-         Begin Object Class=EdGraphPin Name="EdGraphPin_56"
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_10"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_3"
          End Object
       End Object
-      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_1"
-         Begin Object Class=EdGraphPin Name="EdGraphPin_57"
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_11"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_4"
          End Object
       End Object
-      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_2"
-         Begin Object Class=EdGraphPin Name="EdGraphPin_58"
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_12"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_5"
          End Object
       End Object
-      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_3"
-         Begin Object Class=EdGraphPin Name="EdGraphPin_59"
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_13"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_6"
          End Object
       End Object
-      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_4"
-         Begin Object Class=EdGraphPin Name="EdGraphPin_60"
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_22"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_8"
          End Object
       End Object
-      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_5"
-         Begin Object Class=EdGraphPin Name="EdGraphPin_61"
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_23"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_9"
          End Object
       End Object
-      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_6"
-         Begin Object Class=EdGraphPin Name="EdGraphPin_62"
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_24"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_10"
          End Object
       End Object
-   End Object
-   Begin Object Class=BTComposite_Selector Name="BTComposite_Selector_0"
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_25"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_11"
+         End Object
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_26"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_12"
+         End Object
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_27"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_13"
+         End Object
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_28"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_14"
+         End Object
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_7"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_0"
+         End Object
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_8"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_1"
+         End Object
+      End Object
+      Begin Object Class=BehaviorTreeGraphNode_Task Name="BehaviorTreeGraphNode_Task_9"
+         Begin Object Class=EdGraphPin Name="EdGraphPin_2"
+         End Object
+      End Object
    End Object
    Begin Object Class=BTComposite_Selector Name="BTComposite_Selector_1"
    End Object
@@ -149,7 +269,17 @@ Begin Object Class=BehaviorTree Name="决定A1背景墙"
    End Object
    Begin Object Class=BTComposite_Selector Name="BTComposite_Selector_13"
    End Object
+   Begin Object Class=BTComposite_Selector Name="BTComposite_Selector_14"
+   End Object
+   Begin Object Class=BTComposite_Selector Name="BTComposite_Selector_15"
+   End Object
    Begin Object Class=BTComposite_Selector Name="BTComposite_Selector_2"
+   End Object
+   Begin Object Class=BTComposite_Selector Name="BTComposite_Selector_22"
+   End Object
+   Begin Object Class=BTComposite_Selector Name="BTComposite_Selector_23"
+   End Object
+   Begin Object Class=BTComposite_Selector Name="BTComposite_Selector_24"
    End Object
    Begin Object Class=BTComposite_Selector Name="BTComposite_Selector_3"
    End Object
@@ -165,592 +295,1175 @@ Begin Object Class=BehaviorTree Name="决定A1背景墙"
    End Object
    Begin Object Class=BTComposite_Selector Name="BTComposite_Selector_9"
    End Object
-   Begin Object Class=定义背景墙_C Name="定义背景墙_C_0"
+   Begin Object Class=BTComposite_Sequence Name="BTComposite_Sequence_0"
    End Object
-   Begin Object Class=定义背景墙_C Name="定义背景墙_C_1"
+   Begin Object Class=BTComposite_Sequence Name="BTComposite_Sequence_3"
    End Object
-   Begin Object Class=定义背景墙_C Name="定义背景墙_C_2"
+   Begin Object Class=BTComposite_Sequence Name="BTComposite_Sequence_4"
    End Object
-   Begin Object Class=定义背景墙_C Name="定义背景墙_C_3"
+   Begin Object Class=CustomTask_C Name="CustomTask_C_0"
    End Object
-   Begin Object Class=定义背景墙_C Name="定义背景墙_C_4"
+   Begin Object Class=CustomTask_C Name="CustomTask_C_1"
    End Object
-   Begin Object Class=定义背景墙_C Name="定义背景墙_C_5"
+   Begin Object Class=CustomTask_C Name="CustomTask_C_10"
    End Object
-   Begin Object Class=定义背景墙_C Name="定义背景墙_C_6"
+   Begin Object Class=CustomTask_C Name="CustomTask_C_11"
+   End Object
+   Begin Object Class=CustomTask_C Name="CustomTask_C_12"
+   End Object
+   Begin Object Class=CustomTask_C Name="CustomTask_C_13"
+   End Object
+   Begin Object Class=CustomTask_C Name="CustomTask_C_14"
+   End Object
+   Begin Object Class=CustomTask_C Name="CustomTask_C_15"
+   End Object
+   Begin Object Class=CustomTask_C Name="CustomTask_C_16"
+   End Object
+   Begin Object Class=CustomTask_C Name="CustomTask_C_2"
+   End Object
+   Begin Object Class=CustomTask_C Name="CustomTask_C_3"
+   End Object
+   Begin Object Class=CustomTask_C Name="CustomTask_C_4"
+   End Object
+   Begin Object Class=CustomTask_C Name="CustomTask_C_5"
+   End Object
+   Begin Object Class=CustomTask_C Name="CustomTask_C_6"
+   End Object
+   Begin Object Class=CustomDecorator_C Name="CustomDecorator_C_9"
+   End Object
+   Begin Object Class=CustomDecorator_C Name="CustomDecorator_C_8"
+   End Object
+   Begin Object Class=CustomDecorator_C Name="CustomDecorator_C_7"
+   End Object
+   Begin Object Class=CustomDecorator_C Name="CustomDecorator_C_6"
+   End Object
+   Begin Object Class=CustomDecorator_C Name="CustomDecorator_C_5"
+   End Object
+   Begin Object Class=CustomDecorator_C Name="CustomDecorator_C_4"
+   End Object
+   Begin Object Class=CustomDecorator_C Name="CustomDecorator_C_3"
+   End Object
+   Begin Object Class=CustomDecorator_C Name="CustomDecorator_C_2"
+   End Object
+   Begin Object Class=CustomDecorator_C Name="CustomDecorator_C_12"
+   End Object
+   Begin Object Class=CustomDecorator_C Name="CustomDecorator_C_11"
+   End Object
+   Begin Object Class=CustomDecorator_C Name="CustomDecorator_C_10"
+   End Object
+   Begin Object Class=CustomDecorator_C Name="CustomDecorator_C_1"
+   End Object
+   Begin Object Class=CustomDecorator_C Name="CustomDecorator_C_0"
    End Object
    Begin Object Name="Behavior Tree"
+      Begin Object Name="BehaviorTreeGraphNode_CompositeDecorator_0"
+         Begin Object Name="CompositeDecorator"
+            Begin Object Name="BehaviorTreeDecoratorGraphNode_Logic_0"
+               Begin Object Name="EdGraphPin_0"
+                  PinName="In"
+                  PinType=(PinCategory="Transition")
+               End Object
+               Pins(0)=EdGraphPin'EdGraphPin_0'
+               NodeGuid=C4747CD04161F3A05E5C62B755309B93
+            End Object
+            Nodes(0)=BehaviorTreeDecoratorGraphNode_Logic'BehaviorTreeDecoratorGraphNode_Logic_0'
+            GraphGuid=B393AFFF4BC26A0EFD37EEB2E973B47D
+         End Object
+         BoundGraph=BehaviorTreeDecoratorGraph'CompositeDecorator'
+         NodeGuid=3EAD0E0B4F05F36EDE50148A308062CF
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_CompositeDecorator_1"
+         Begin Object Name="CompositeDecorator"
+            Begin Object Name="BehaviorTreeDecoratorGraphNode_Logic_0"
+               Begin Object Name="EdGraphPin_0"
+                  PinName="In"
+                  PinType=(PinCategory="Transition")
+               End Object
+               Pins(0)=EdGraphPin'EdGraphPin_0'
+               NodeGuid=C5CB876144286C7488ED4E96DC54E410
+            End Object
+            Nodes(0)=BehaviorTreeDecoratorGraphNode_Logic'BehaviorTreeDecoratorGraphNode_Logic_0'
+            GraphGuid=C899080B49395B3BD8C6FBB0730E7BAB
+         End Object
+         BoundGraph=BehaviorTreeDecoratorGraph'CompositeDecorator'
+         NodeGuid=2DC48395444A49FA16589D8BEF989787
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_CompositeDecorator_6"
+         Begin Object Name="CompositeDecorator"
+            Begin Object Name="BehaviorTreeDecoratorGraphNode_Logic_1"
+               Begin Object Name="EdGraphPin_1"
+                  PinName="In"
+                  PinType=(PinCategory="Transition")
+               End Object
+               Pins(0)=EdGraphPin'EdGraphPin_1'
+               NodeGuid=4AA7F9A347F711E3C75042B1E605AD07
+            End Object
+            Nodes(0)=BehaviorTreeDecoratorGraphNode_Logic'BehaviorTreeDecoratorGraphNode_Logic_1'
+            GraphGuid=D9ABC75D4B58A8C02E2A54B81FC11C6B
+         End Object
+         BoundGraph=BehaviorTreeDecoratorGraph'CompositeDecorator'
+         ParentNodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_9'
+         NodeGuid=1D3D51B944D279E2E97F7FA1BC4A483E
+      End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_0"
          Begin Object Name="EdGraphPin_1"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_27.EdGraphPin_55"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_27.EdGraphPin_55"'
          End Object
          Begin Object Name="EdGraphPin_2"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_1.EdGraphPin_3"'
-            LinkedTo(1)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_7.EdGraphPin_13"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_1.EdGraphPin_3"'
+            LinkedTo(1)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_7.EdGraphPin_13"'
          End Object
+         Decorators(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_358"'
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_0'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_2'
+         SubNodes(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_358"'
          Pins(0)=EdGraphPin'EdGraphPin_1'
          Pins(1)=EdGraphPin'EdGraphPin_2'
-         NodePosX=651
-         NodePosY=380
-         NodeGuid=777F5B0F42BEBC70A751B281CDCB0935
+         NodePosX=-1232
+         NodePosY=1696
+         NodeGuid=9F8C4B2E4867BC4244634EBCD9ECD788
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_1"
          Begin Object Name="EdGraphPin_3"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_0.EdGraphPin_2"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_0.EdGraphPin_2"'
          End Object
          Begin Object Name="EdGraphPin_4"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_2.EdGraphPin_5"'
-            LinkedTo(1)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_4.EdGraphPin_7"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_2.EdGraphPin_5"'
+            LinkedTo(1)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_4.EdGraphPin_7"'
          End Object
+         Decorators(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_249"'
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_1'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_3'
+         SubNodes(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_249"'
          CopySubNodeIndex=1
          Pins(0)=EdGraphPin'EdGraphPin_3'
          Pins(1)=EdGraphPin'EdGraphPin_4'
-         NodePosX=257
-         NodePosY=585
-         NodeGuid=60ABE466458A4DCD961193A5EAB6C52E
+         NodePosX=-1632
+         NodePosY=1904
+         NodeGuid=4EFC54634878FF6C9CB2A0B47FEA6D85
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_10"
          Begin Object Name="EdGraphPin_19"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_7.EdGraphPin_14"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_7.EdGraphPin_14"'
          End Object
          Begin Object Name="EdGraphPin_20"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Task_2.EdGraphPin_58"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_9.EdGraphPin_2"'
          End Object
+         Decorators(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_124"'
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_6'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_8'
+         SubNodes(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_124"'
          CopySubNodeIndex=6
          Pins(0)=EdGraphPin'EdGraphPin_19'
          Pins(1)=EdGraphPin'EdGraphPin_20'
-         NodePosX=718
-         NodePosY=790
-         NodeGuid=6D397E5C47C4BF2D4A184C966D9D802F
+         NodePosX=-1168
+         NodePosY=2112
+         NodeGuid=278343DE48DE30BFD6A1ABAD7E037D9B
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Composite_11"
+         Begin Object Name="EdGraphPin_42"
+            PinName="In"
+            PinType=(PinCategory="MultipleNodes")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_17.EdGraphPin_41"'
+         End Object
+         Begin Object Name="EdGraphPin_43"
+            PinName="Out"
+            Direction=EGPD_Output
+            PinType=(PinCategory="MultipleNodes")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_6.EdGraphPin_52"'
+         End Object
+         ClassData=(ClassName="BTComposite_Selector")
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_1'
+         CopySubNodeIndex=9
+         Pins(0)=EdGraphPin'EdGraphPin_42'
+         Pins(1)=EdGraphPin'EdGraphPin_43'
+         NodePosX=-288
+         NodePosY=448
+         NodeGuid=7F3FBF1641E6317265FD44852819C59F
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_12"
          Begin Object Name="EdGraphPin_23"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_27.EdGraphPin_55"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_27.EdGraphPin_55"'
          End Object
          Begin Object Name="EdGraphPin_24"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_13.EdGraphPin_25"'
-            LinkedTo(1)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_5.EdGraphPin_0"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_13.EdGraphPin_25"'
+            LinkedTo(1)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_5.EdGraphPin_0"'
          End Object
+         Decorators(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_380"'
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_7'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_9'
+         SubNodes(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_380"'
          CopySubNodeIndex=7
          Pins(0)=EdGraphPin'EdGraphPin_23'
          Pins(1)=EdGraphPin'EdGraphPin_24'
-         NodePosX=1884
-         NodePosY=380
-         NodeGuid=DE3260D54DC5BEB06CFEA490064C2941
+         NodePosY=1696
+         NodeGuid=96CE99494B5A771DE4B5C381C7AF2705
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_13"
          Begin Object Name="EdGraphPin_25"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_12.EdGraphPin_24"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_12.EdGraphPin_24"'
          End Object
          Begin Object Name="EdGraphPin_26"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_16.EdGraphPin_31"'
-            LinkedTo(1)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_14.EdGraphPin_27"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_16.EdGraphPin_31"'
+            LinkedTo(1)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_14.EdGraphPin_27"'
          End Object
+         Decorators(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_314"'
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_8'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_10'
+         SubNodes(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_314"'
          CopySubNodeIndex=8
          Pins(0)=EdGraphPin'EdGraphPin_25'
          Pins(1)=EdGraphPin'EdGraphPin_26'
-         NodePosX=1703
-         NodePosY=585
+         NodePosX=-192
+         NodePosY=1904
          NodeComment="小窗长度小于900mm，任意窗户平行"
          bCommentBubbleVisible=True
-         NodeGuid=31E7C25841E965145517FC9C939590FA
+         NodeGuid=CF7E88F449DAA24C492DE097678021E4
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_14"
          Begin Object Name="EdGraphPin_27"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_13.EdGraphPin_26"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_13.EdGraphPin_26"'
          End Object
          Begin Object Name="EdGraphPin_28"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Task_4.EdGraphPin_60"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_12.EdGraphPin_5"'
          End Object
+         Decorators(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_207"'
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_9'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_11'
+         SubNodes(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_207"'
          CopySubNodeIndex=9
          Pins(0)=EdGraphPin'EdGraphPin_27'
          Pins(1)=EdGraphPin'EdGraphPin_28'
-         NodePosX=1810
-         NodePosY=790
-         NodeGuid=82A2301142BB8ADB8495FB87855D4604
+         NodePosX=-64
+         NodePosY=2144
+         NodeGuid=495589B2435C27565C3E4AB96D4A2E23
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Composite_15"
+         Begin Object Name="EdGraphPin_48"
+            PinName="In"
+            PinType=(PinCategory="MultipleNodes")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_17.EdGraphPin_41"'
+         End Object
+         Begin Object Name="EdGraphPin_49"
+            PinName="Out"
+            Direction=EGPD_Output
+            PinType=(PinCategory="MultipleNodes")
+         End Object
+         ClassData=(ClassName="BTComposite_Selector")
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_24'
+         Pins(0)=EdGraphPin'EdGraphPin_48'
+         Pins(1)=EdGraphPin'EdGraphPin_49'
+         NodePosX=399
+         NodePosY=376
+         NodeGuid=F82E193148105B0DFF1CF8BB0696951F
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_16"
          Begin Object Name="EdGraphPin_31"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_13.EdGraphPin_26"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_13.EdGraphPin_26"'
          End Object
          Begin Object Name="EdGraphPin_32"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Task_5.EdGraphPin_61"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_11.EdGraphPin_4"'
          End Object
+         Decorators(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_166"'
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_10'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_12'
+         SubNodes(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_166"'
          CopySubNodeIndex=10
          Pins(0)=EdGraphPin'EdGraphPin_31'
          Pins(1)=EdGraphPin'EdGraphPin_32'
-         NodePosX=1456
-         NodePosY=790
-         NodeGuid=AC7810FF44FDCE603C8BAAB05E66958E
+         NodePosX=-448
+         NodePosY=2128
+         NodeGuid=3E8F176D478FC1955C05EB8196643C05
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Composite_17"
+         Begin Object Name="EdGraphPin_40"
+            PinName="In"
+            PinType=(PinCategory="MultipleNodes")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Root_0.EdGraphPin_0"'
+         End Object
+         Begin Object Name="EdGraphPin_41"
+            PinName="Out"
+            Direction=EGPD_Output
+            PinType=(PinCategory="MultipleNodes")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_11.EdGraphPin_42"'
+            LinkedTo(1)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_9.EdGraphPin_44"'
+            LinkedTo(2)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_19.EdGraphPin_46"'
+            LinkedTo(3)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_15.EdGraphPin_48"'
+         End Object
+         ClassData=(ClassName="BTComposite_Sequence")
+         NodeInstance=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_0'
+         Pins(0)=EdGraphPin'EdGraphPin_40'
+         Pins(1)=EdGraphPin'EdGraphPin_41'
+         NodePosX=139
+         NodePosY=173
+         NodeGuid=D918477348E4320420566EA69A733937
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_18"
          Begin Object Name="EdGraphPin_35"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_5.EdGraphPin_1"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_5.EdGraphPin_1"'
          End Object
          Begin Object Name="EdGraphPin_36"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Task_6.EdGraphPin_62"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_13.EdGraphPin_6"'
          End Object
+         Decorators(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_228"'
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_11'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_13'
+         SubNodes(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_228"'
          CopySubNodeIndex=11
          Pins(0)=EdGraphPin'EdGraphPin_35'
          Pins(1)=EdGraphPin'EdGraphPin_36'
-         NodePosX=2144
-         NodePosY=790
-         NodeGuid=9642DF204EEDDCD8FAE395B6863FCE2D
+         NodePosX=304
+         NodePosY=2144
+         NodeGuid=3D016620483AFCD0AE0469B8CF5B2942
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Composite_19"
+         Begin Object Name="EdGraphPin_46"
+            PinName="In"
+            PinType=(PinCategory="MultipleNodes")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_17.EdGraphPin_41"'
+         End Object
+         Begin Object Name="EdGraphPin_47"
+            PinName="Out"
+            Direction=EGPD_Output
+            PinType=(PinCategory="MultipleNodes")
+         End Object
+         ClassData=(ClassName="BTComposite_Selector")
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_23'
+         Pins(0)=EdGraphPin'EdGraphPin_46'
+         Pins(1)=EdGraphPin'EdGraphPin_47'
+         NodePosX=294
+         NodePosY=376
+         NodeGuid=F04A7F754A6D844F6759E79CA0D7113F
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_2"
          Begin Object Name="EdGraphPin_5"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_1.EdGraphPin_4"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_1.EdGraphPin_4"'
          End Object
          Begin Object Name="EdGraphPin_6"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Task_1.EdGraphPin_57"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_7.EdGraphPin_0"'
          End Object
+         Decorators(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_62"'
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_2'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_4'
+         SubNodes(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_62"'
          CopySubNodeIndex=2
          Pins(0)=EdGraphPin'EdGraphPin_5'
          Pins(1)=EdGraphPin'EdGraphPin_6'
-         NodePosX=30
-         NodePosY=790
-         NodeGuid=04337A9E44864A2DEDBB93A0D4FFA3CC
+         NodePosX=-1888
+         NodePosY=2112
+         NodeGuid=DA91AD624B7695F954668CB6BEF0CF53
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Composite_25"
+         Begin Object Name="EdGraphPin_2"
+            PinName="In"
+            PinType=(PinCategory="MultipleNodes")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_6.EdGraphPin_53"'
+         End Object
+         Begin Object Name="EdGraphPin_3"
+            PinName="Out"
+            Direction=EGPD_Output
+            PinType=(PinCategory="MultipleNodes")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_24.EdGraphPin_10"'
+            LinkedTo(1)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_25.EdGraphPin_11"'
+            LinkedTo(2)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_26.EdGraphPin_12"'
+         End Object
+         ClassData=(ClassName="BTComposite_Sequence")
+         NodeInstance=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_4'
+         CopySubNodeIndex=4
+         Pins(0)=EdGraphPin'EdGraphPin_2'
+         Pins(1)=EdGraphPin'EdGraphPin_3'
+         NodePosX=528
+         NodePosY=1088
+         NodeGuid=0490688449AAC479CCE3918374CC8726
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_27"
          Begin Object Name="EdGraphPin_54"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Root_0.EdGraphPin_0"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_6.EdGraphPin_53"'
          End Object
          Begin Object Name="EdGraphPin_55"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_0.EdGraphPin_1"'
-            LinkedTo(1)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_12.EdGraphPin_23"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_0.EdGraphPin_1"'
+            LinkedTo(1)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_12.EdGraphPin_23"'
          End Object
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_12'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_14'
          CopySubNodeIndex=12
          Pins(0)=EdGraphPin'EdGraphPin_54'
          Pins(1)=EdGraphPin'EdGraphPin_55'
-         NodePosX=1156
-         NodePosY=175
-         NodeGuid=B984CF9243FB400B1EB61E9F35350CA4
+         NodePosX=-736
+         NodePosY=1488
+         NodeGuid=8C64C0C64832D736B2AA3EBFA75C4F86
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_4"
          Begin Object Name="EdGraphPin_7"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_1.EdGraphPin_4"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_1.EdGraphPin_4"'
          End Object
          Begin Object Name="EdGraphPin_8"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Task_0.EdGraphPin_56"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_8.EdGraphPin_1"'
          End Object
+         Decorators(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_83"'
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_3'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_5'
+         SubNodes(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_83"'
          CopySubNodeIndex=3
          Pins(0)=EdGraphPin'EdGraphPin_7'
          Pins(1)=EdGraphPin'EdGraphPin_8'
-         NodePosX=354
-         NodePosY=790
-         NodeGuid=B28DF4494004508381F4079EA7C24516
+         NodePosX=-1536
+         NodePosY=2112
+         NodeGuid=1B6EC2F349B31D3E06662D84F4C5E4B1
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_5"
          Begin Object Name="EdGraphPin_0"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_12.EdGraphPin_24"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_12.EdGraphPin_24"'
          End Object
          Begin Object Name="EdGraphPin_1"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_18.EdGraphPin_35"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_18.EdGraphPin_35"'
          End Object
+         Decorators(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_336"'
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_13'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_15'
+         SubNodes(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_336"'
          CopySubNodeIndex=20
          Pins(0)=EdGraphPin'EdGraphPin_0'
          Pins(1)=EdGraphPin'EdGraphPin_1'
-         NodePosX=2198
-         NodePosY=585
+         NodePosX=288
+         NodePosY=1888
          NodeComment="与所有窗户都垂直"
          bCommentBubbleVisible=True
-         NodeGuid=964CCAA7413E413994A3268F13913AF6
+         NodeGuid=164AB47743B8AAA5730987B4B4FA4FBB
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Composite_6"
+         Begin Object Name="EdGraphPin_52"
+            PinName="In"
+            PinType=(PinCategory="MultipleNodes")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_11.EdGraphPin_43"'
+         End Object
+         Begin Object Name="EdGraphPin_53"
+            PinName="Out"
+            Direction=EGPD_Output
+            PinType=(PinCategory="MultipleNodes")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_27.EdGraphPin_54"'
+            LinkedTo(1)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_22.EdGraphPin_8"'
+            LinkedTo(2)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_23.EdGraphPin_9"'
+            LinkedTo(3)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_25.EdGraphPin_2"'
+            LinkedTo(4)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_28.EdGraphPin_14"'
+            LinkedTo(5)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_27.EdGraphPin_13"'
+         End Object
+         ClassData=(ClassName="BTComposite_Sequence")
+         NodeInstance=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_3'
+         Pins(0)=EdGraphPin'EdGraphPin_52'
+         Pins(1)=EdGraphPin'EdGraphPin_53'
+         NodePosX=-352
+         NodePosY=896
+         NodeGuid=F90EE89C405D70C2145DACA5643123AE
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_7"
          Begin Object Name="EdGraphPin_13"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_0.EdGraphPin_2"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_0.EdGraphPin_2"'
          End Object
          Begin Object Name="EdGraphPin_14"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_10.EdGraphPin_19"'
-            LinkedTo(1)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_8.EdGraphPin_15"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_10.EdGraphPin_19"'
+            LinkedTo(1)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_8.EdGraphPin_15"'
          End Object
+         Decorators(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_292"'
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_4'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_6'
+         SubNodes(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_292"'
          CopySubNodeIndex=4
          Pins(0)=EdGraphPin'EdGraphPin_13'
          Pins(1)=EdGraphPin'EdGraphPin_14'
-         NodePosX=975
-         NodePosY=585
-         NodeGuid=553BF8F84D3ADB003206C597675A7D92
+         NodePosX=-912
+         NodePosY=1904
+         NodeGuid=6718F11F4AA133BCCE4E438AB0030487
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Composite_8"
          Begin Object Name="EdGraphPin_15"
             PinName="In"
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_7.EdGraphPin_14"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_7.EdGraphPin_14"'
          End Object
          Begin Object Name="EdGraphPin_16"
             PinName="Out"
             Direction=EGPD_Output
             PinType=(PinCategory="MultipleNodes")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Task_3.EdGraphPin_59"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Task_10.EdGraphPin_3"'
          End Object
+         Decorators(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_145"'
          ClassData=(ClassName="BTComposite_Selector")
-         NodeInstance=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_5'
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_7'
+         SubNodes(0)=BehaviorTreeGraphNode_Decorator'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Decorator_145"'
          CopySubNodeIndex=5
          Pins(0)=EdGraphPin'EdGraphPin_15'
          Pins(1)=EdGraphPin'EdGraphPin_16'
-         NodePosX=1082
-         NodePosY=790
-         NodeGuid=495B89C344190ED93EF68295C1D5BE67
+         NodePosX=-800
+         NodePosY=2112
+         NodeGuid=9872E1E34B1A423EF485E9AC2F812FEE
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Composite_9"
+         Begin Object Name="EdGraphPin_44"
+            PinName="In"
+            PinType=(PinCategory="MultipleNodes")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_17.EdGraphPin_41"'
+         End Object
+         Begin Object Name="EdGraphPin_45"
+            PinName="Out"
+            Direction=EGPD_Output
+            PinType=(PinCategory="MultipleNodes")
+         End Object
+         ClassData=(ClassName="BTComposite_Selector")
+         NodeInstance=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_22'
+         Pins(0)=EdGraphPin'EdGraphPin_44'
+         Pins(1)=EdGraphPin'EdGraphPin_45'
+         NodePosX=190
+         NodePosY=376
+         NodeGuid=D256B2CF4C752D95EF482CA28E818D88
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Decorator_124"
+         ClassData=(AssetName="CustomDecorator",GeneratedClassPackage="/Game/自动布局/CustomDecorator",ClassName="CustomDecorator_C")
+         NodeInstance=CustomDecorator_C'卧室布局行为树:CustomDecorator_C_2'
+         NodeGuid=D04240524958D6A53D1B55ACCCCFD811
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Decorator_145"
+         ClassData=(AssetName="CustomDecorator",GeneratedClassPackage="/Game/自动布局/CustomDecorator",ClassName="CustomDecorator_C")
+         NodeInstance=CustomDecorator_C'卧室布局行为树:CustomDecorator_C_3'
+         NodeGuid=77EF94C44E419BCB98D39680512ABC96
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Decorator_166"
+         ClassData=(AssetName="CustomDecorator",GeneratedClassPackage="/Game/自动布局/CustomDecorator",ClassName="CustomDecorator_C")
+         NodeInstance=CustomDecorator_C'卧室布局行为树:CustomDecorator_C_4'
+         NodeGuid=727116B64EF54A1249860E84AA2DD081
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Decorator_207"
+         ClassData=(AssetName="CustomDecorator",GeneratedClassPackage="/Game/自动布局/CustomDecorator",ClassName="CustomDecorator_C")
+         NodeInstance=CustomDecorator_C'卧室布局行为树:CustomDecorator_C_5'
+         NodeGuid=1574FA9F42830A79148637931EACCC4A
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Decorator_228"
+         ClassData=(AssetName="CustomDecorator",GeneratedClassPackage="/Game/自动布局/CustomDecorator",ClassName="CustomDecorator_C")
+         NodeInstance=CustomDecorator_C'卧室布局行为树:CustomDecorator_C_6'
+         NodeGuid=CD39DE1F4D98573C2334038270481E6A
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Decorator_249"
+         ClassData=(AssetName="CustomDecorator",GeneratedClassPackage="/Game/自动布局/CustomDecorator",ClassName="CustomDecorator_C")
+         NodeInstance=CustomDecorator_C'卧室布局行为树:CustomDecorator_C_7'
+         NodeGuid=37E5B7B94EA7CA47679E90867D66FF0E
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Decorator_292"
+         ClassData=(AssetName="CustomDecorator",GeneratedClassPackage="/Game/自动布局/CustomDecorator",ClassName="CustomDecorator_C")
+         NodeInstance=CustomDecorator_C'卧室布局行为树:CustomDecorator_C_8'
+         NodeGuid=DC1501DF48896E371EB9E6AA876CF114
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Decorator_314"
+         ClassData=(AssetName="CustomDecorator",GeneratedClassPackage="/Game/自动布局/CustomDecorator",ClassName="CustomDecorator_C")
+         NodeInstance=CustomDecorator_C'卧室布局行为树:CustomDecorator_C_9'
+         NodeGuid=70C5792E4DBF71796D623482C6499B01
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Decorator_336"
+         ClassData=(AssetName="CustomDecorator",GeneratedClassPackage="/Game/自动布局/CustomDecorator",ClassName="CustomDecorator_C")
+         NodeInstance=CustomDecorator_C'卧室布局行为树:CustomDecorator_C_10'
+         NodeGuid=ED9724BD4577E3556F6C0B9D993BA633
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Decorator_358"
+         ClassData=(AssetName="CustomDecorator",GeneratedClassPackage="/Game/自动布局/CustomDecorator",ClassName="CustomDecorator_C")
+         NodeInstance=CustomDecorator_C'卧室布局行为树:CustomDecorator_C_11'
+         NodeGuid=64CD879141F9F472EB0D599610C8C1D8
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Decorator_380"
+         ClassData=(AssetName="CustomDecorator",GeneratedClassPackage="/Game/自动布局/CustomDecorator",ClassName="CustomDecorator_C")
+         NodeInstance=CustomDecorator_C'卧室布局行为树:CustomDecorator_C_12'
+         NodeGuid=CE24647149513ECE0B29C5AE550C4553
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Decorator_62"
+         ClassData=(AssetName="CustomDecorator",GeneratedClassPackage="/Game/自动布局/CustomDecorator",ClassName="CustomDecorator_C")
+         NodeInstance=CustomDecorator_C'卧室布局行为树:CustomDecorator_C_0'
+         NodeGuid=CEF060D048D96471552873B2B5901CE3
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Decorator_83"
+         ClassData=(AssetName="CustomDecorator",GeneratedClassPackage="/Game/自动布局/CustomDecorator",ClassName="CustomDecorator_C")
+         NodeInstance=CustomDecorator_C'卧室布局行为树:CustomDecorator_C_1'
+         NodeGuid=537232F74239EEDDDD5B20B7DAECE914
       End Object
       Begin Object Name="BehaviorTreeGraphNode_Root_0"
          Begin Object Name="EdGraphPin_0"
             PinName="In"
             Direction=EGPD_Output
             PinType=(PinCategory="SingleComposite")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_27.EdGraphPin_54"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_17.EdGraphPin_40"'
          End Object
          BlackboardAsset=BlackboardData'/Game/自动布局/卧室自动布局黑板.卧室自动布局黑板'
          Pins(0)=EdGraphPin'EdGraphPin_0'
-         NodePosX=1185
-         NodeGuid=3312B6E948161501CCFDC8ADBEE0B8AC
+         NodePosX=161
+         NodeGuid=E2300698497F63C00564FE8DCBE3B953
       End Object
-      Begin Object Name="BehaviorTreeGraphNode_Task_0"
-         Begin Object Name="EdGraphPin_56"
+      Begin Object Name="BehaviorTreeGraphNode_Task_10"
+         Begin Object Name="EdGraphPin_3"
             PinName="In"
             PinType=(PinCategory="SingleComposite")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_4.EdGraphPin_8"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_8.EdGraphPin_16"'
          End Object
-         ClassData=(AssetName="定义背景墙",GeneratedClassPackage="/Game/自动布局/定义背景墙",ClassName="定义背景墙_C")
-         NodeInstance=定义背景墙_C'决定A1背景墙:定义背景墙_C_0'
-         CopySubNodeIndex=13
-         Pins(0)=EdGraphPin'EdGraphPin_56'
-         NodePosX=354
-         NodePosY=995
-         NodeGuid=1FA6250E458E222CE33FDAA421F7D31E
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_3'
+         Pins(0)=EdGraphPin'EdGraphPin_3'
+         NodePosX=-816
+         NodePosY=2384
+         NodeGuid=8EA1E3044326754945B2A68163626C09
       End Object
-      Begin Object Name="BehaviorTreeGraphNode_Task_1"
-         Begin Object Name="EdGraphPin_57"
+      Begin Object Name="BehaviorTreeGraphNode_Task_11"
+         Begin Object Name="EdGraphPin_4"
             PinName="In"
             PinType=(PinCategory="SingleComposite")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_2.EdGraphPin_6"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_16.EdGraphPin_32"'
          End Object
-         ClassData=(AssetName="定义背景墙",GeneratedClassPackage="/Game/自动布局/定义背景墙",ClassName="定义背景墙_C")
-         NodeInstance=定义背景墙_C'决定A1背景墙:定义背景墙_C_1'
-         CopySubNodeIndex=14
-         Pins(0)=EdGraphPin'EdGraphPin_57'
-         NodePosY=995
-         NodeGuid=A015565B4807AD1E042D098492EFDA1B
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_4'
+         Pins(0)=EdGraphPin'EdGraphPin_4'
+         NodePosX=-416
+         NodePosY=2400
+         NodeGuid=E9C4CE664F73D653D1C019BE9C9B2C25
       End Object
-      Begin Object Name="BehaviorTreeGraphNode_Task_2"
-         Begin Object Name="EdGraphPin_58"
+      Begin Object Name="BehaviorTreeGraphNode_Task_12"
+         Begin Object Name="EdGraphPin_5"
             PinName="In"
             PinType=(PinCategory="SingleComposite")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_10.EdGraphPin_20"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_14.EdGraphPin_28"'
          End Object
-         ClassData=(AssetName="定义背景墙",GeneratedClassPackage="/Game/自动布局/定义背景墙",ClassName="定义背景墙_C")
-         NodeInstance=定义背景墙_C'决定A1背景墙:定义背景墙_C_2'
-         CopySubNodeIndex=15
-         Pins(0)=EdGraphPin'EdGraphPin_58'
-         NodePosX=708
-         NodePosY=995
-         NodeGuid=2E72B7B24762D1B03CE0A7BFA82BFC35
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_5'
+         Pins(0)=EdGraphPin'EdGraphPin_5'
+         NodePosX=-16
+         NodePosY=2416
+         NodeGuid=E7BFB15F467BD85DAFBDA0A901BDF72F
       End Object
-      Begin Object Name="BehaviorTreeGraphNode_Task_3"
-         Begin Object Name="EdGraphPin_59"
+      Begin Object Name="BehaviorTreeGraphNode_Task_13"
+         Begin Object Name="EdGraphPin_6"
             PinName="In"
             PinType=(PinCategory="SingleComposite")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_8.EdGraphPin_16"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_18.EdGraphPin_36"'
          End Object
-         ClassData=(AssetName="定义背景墙",GeneratedClassPackage="/Game/自动布局/定义背景墙",ClassName="定义背景墙_C")
-         NodeInstance=定义背景墙_C'决定A1背景墙:定义背景墙_C_3'
-         CopySubNodeIndex=16
-         Pins(0)=EdGraphPin'EdGraphPin_59'
-         NodePosX=1062
-         NodePosY=995
-         NodeGuid=DF66F1834D6D680E414674B4AF720665
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_6'
+         Pins(0)=EdGraphPin'EdGraphPin_6'
+         NodePosX=480
+         NodePosY=2416
+         NodeGuid=A9475F394D11344D355DB3A65AD07076
       End Object
-      Begin Object Name="BehaviorTreeGraphNode_Task_4"
-         Begin Object Name="EdGraphPin_60"
+      Begin Object Name="BehaviorTreeGraphNode_Task_22"
+         Begin Object Name="EdGraphPin_8"
             PinName="In"
             PinType=(PinCategory="SingleComposite")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_14.EdGraphPin_28"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_6.EdGraphPin_53"'
          End Object
-         ClassData=(AssetName="定义背景墙",GeneratedClassPackage="/Game/自动布局/定义背景墙",ClassName="定义背景墙_C")
-         NodeInstance=定义背景墙_C'决定A1背景墙:定义背景墙_C_4'
-         CopySubNodeIndex=17
-         Pins(0)=EdGraphPin'EdGraphPin_60'
-         NodePosX=1810
-         NodePosY=995
-         NodeGuid=E71E22564FCC617636BE2C8BD146C5F8
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_10'
+         Pins(0)=EdGraphPin'EdGraphPin_8'
+         NodePosX=-352
+         NodePosY=1248
+         NodeGuid=95DF7ED342F7510F7498D2B5EDD0E537
       End Object
-      Begin Object Name="BehaviorTreeGraphNode_Task_5"
-         Begin Object Name="EdGraphPin_61"
+      Begin Object Name="BehaviorTreeGraphNode_Task_23"
+         Begin Object Name="EdGraphPin_9"
             PinName="In"
             PinType=(PinCategory="SingleComposite")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_16.EdGraphPin_32"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_6.EdGraphPin_53"'
          End Object
-         ClassData=(AssetName="定义背景墙",GeneratedClassPackage="/Game/自动布局/定义背景墙",ClassName="定义背景墙_C")
-         NodeInstance=定义背景墙_C'决定A1背景墙:定义背景墙_C_5'
-         CopySubNodeIndex=18
-         Pins(0)=EdGraphPin'EdGraphPin_61'
-         NodePosX=1456
-         NodePosY=995
-         NodeGuid=A50BCB6E48287FCB0171318560FDDC22
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_11'
+         Pins(0)=EdGraphPin'EdGraphPin_9'
+         NodePosX=-144
+         NodePosY=1168
+         NodeGuid=3303D3504977E41B878E3B98B5C081F9
       End Object
-      Begin Object Name="BehaviorTreeGraphNode_Task_6"
-         Begin Object Name="EdGraphPin_62"
+      Begin Object Name="BehaviorTreeGraphNode_Task_24"
+         Begin Object Name="EdGraphPin_10"
             PinName="In"
             PinType=(PinCategory="SingleComposite")
-            LinkedTo(0)=EdGraphPin'"决定A1背景墙:Behavior Tree.BehaviorTreeGraphNode_Composite_18.EdGraphPin_36"'
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_25.EdGraphPin_3"'
          End Object
-         ClassData=(AssetName="定义背景墙",GeneratedClassPackage="/Game/自动布局/定义背景墙",ClassName="定义背景墙_C")
-         NodeInstance=定义背景墙_C'决定A1背景墙:定义背景墙_C_6'
-         CopySubNodeIndex=19
-         Pins(0)=EdGraphPin'EdGraphPin_62'
-         NodePosX=2144
-         NodePosY=995
-         NodeGuid=3E9ADFC14D6D11CE0CD0A182095BD69C
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_12'
+         Pins(0)=EdGraphPin'EdGraphPin_10'
+         NodePosX=176
+         NodePosY=1312
+         NodeGuid=F6F84D4B4AC966DFE98C3BB71A6F44BE
       End Object
-      ModCounter=3
+      Begin Object Name="BehaviorTreeGraphNode_Task_25"
+         Begin Object Name="EdGraphPin_11"
+            PinName="In"
+            PinType=(PinCategory="SingleComposite")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_25.EdGraphPin_3"'
+         End Object
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_13'
+         Pins(0)=EdGraphPin'EdGraphPin_11'
+         NodePosX=512
+         NodePosY=1328
+         NodeGuid=FB0EDB3149AF08FA43973581E00A76C4
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Task_26"
+         Begin Object Name="EdGraphPin_12"
+            PinName="In"
+            PinType=(PinCategory="SingleComposite")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_25.EdGraphPin_3"'
+         End Object
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_14'
+         Pins(0)=EdGraphPin'EdGraphPin_12'
+         NodePosX=880
+         NodePosY=1328
+         NodeGuid=805754BF47BC6C5BC9578FA85182E060
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Task_27"
+         Begin Object Name="EdGraphPin_13"
+            PinName="In"
+            PinType=(PinCategory="SingleComposite")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_6.EdGraphPin_53"'
+         End Object
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_15'
+         Pins(0)=EdGraphPin'EdGraphPin_13'
+         NodePosX=624
+         NodePosY=960
+         NodeGuid=A667F0B240DB121203AE94A03D95290E
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Task_28"
+         Begin Object Name="EdGraphPin_14"
+            PinName="In"
+            PinType=(PinCategory="SingleComposite")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_6.EdGraphPin_53"'
+         End Object
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_16'
+         Pins(0)=EdGraphPin'EdGraphPin_14'
+         NodePosX=624
+         NodePosY=784
+         NodeGuid=EB7B950742D81B98A543E9932C70F75D
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Task_7"
+         Begin Object Name="EdGraphPin_0"
+            PinName="In"
+            PinType=(PinCategory="SingleComposite")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_2.EdGraphPin_6"'
+         End Object
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_0'
+         Pins(0)=EdGraphPin'EdGraphPin_0'
+         NodePosX=-1936
+         NodePosY=2368
+         NodeComment="背景墙为远离门的无窗无门墙"
+         NodeGuid=17B077374154539B913CF7AF11E14830
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Task_8"
+         Begin Object Name="EdGraphPin_1"
+            PinName="In"
+            PinType=(PinCategory="SingleComposite")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_4.EdGraphPin_8"'
+         End Object
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_1'
+         Pins(0)=EdGraphPin'EdGraphPin_1'
+         NodePosX=-1504
+         NodePosY=2368
+         NodeGuid=321F3ACD46AAA77A48979186F97090AB
+      End Object
+      Begin Object Name="BehaviorTreeGraphNode_Task_9"
+         Begin Object Name="EdGraphPin_2"
+            PinName="In"
+            PinType=(PinCategory="SingleComposite")
+            LinkedTo(0)=EdGraphPin'"卧室布局行为树:Behavior Tree.BehaviorTreeGraphNode_Composite_10.EdGraphPin_20"'
+         End Object
+         ClassData=(AssetName="CustomTask",GeneratedClassPackage="/Game/自动布局/CustomTask",ClassName="CustomTask_C")
+         NodeInstance=CustomTask_C'卧室布局行为树:CustomTask_C_2'
+         Pins(0)=EdGraphPin'EdGraphPin_2'
+         NodePosX=-1200
+         NodePosY=2368
+         NodeGuid=333FB0EA43332267E7FE2CA0AE3E6548
+      End Object
+      ModCounter=246
       bIsUsingModCounter=True
       GraphVersion=2
       Nodes(0)=BehaviorTreeGraphNode_Root'BehaviorTreeGraphNode_Root_0'
-      Nodes(1)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_0'
-      Nodes(2)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_1'
-      Nodes(3)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_2'
-      Nodes(4)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_4'
-      Nodes(5)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_7'
-      Nodes(6)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_8'
-      Nodes(7)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_10'
-      Nodes(8)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_12'
-      Nodes(9)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_13'
-      Nodes(10)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_14'
-      Nodes(11)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_16'
-      Nodes(12)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_18'
-      Nodes(13)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_27'
-      Nodes(14)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_0'
-      Nodes(15)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_1'
-      Nodes(16)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_2'
-      Nodes(17)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_3'
-      Nodes(18)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_4'
-      Nodes(19)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_5'
-      Nodes(20)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_6'
+      Nodes(1)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_17'
+      Nodes(2)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_9'
+      Nodes(3)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_19'
+      Nodes(4)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_15'
+      Nodes(5)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_6'
+      Nodes(6)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_25'
+      Nodes(7)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_11'
+      Nodes(8)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_0'
+      Nodes(9)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_1'
+      Nodes(10)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_2'
+      Nodes(11)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_4'
+      Nodes(12)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_7'
+      Nodes(13)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_8'
+      Nodes(14)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_10'
+      Nodes(15)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_12'
+      Nodes(16)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_13'
+      Nodes(17)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_14'
+      Nodes(18)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_16'
+      Nodes(19)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_18'
+      Nodes(20)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_27'
       Nodes(21)=BehaviorTreeGraphNode_Composite'BehaviorTreeGraphNode_Composite_5'
-      GraphGuid=76E9EA6142E2838DDC608094C86DF212
-   End Object
-   Begin Object Name="BTComposite_Selector_0"
-      Children(0)=(ChildComposite=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_1')
-      Children(1)=(ChildComposite=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_4')
-      NodeName="单窗房间"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_12'
+      Nodes(22)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_7'
+      Nodes(23)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_8'
+      Nodes(24)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_9'
+      Nodes(25)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_10'
+      Nodes(26)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_11'
+      Nodes(27)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_12'
+      Nodes(28)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_13'
+      Nodes(29)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_22'
+      Nodes(30)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_23'
+      Nodes(31)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_24'
+      Nodes(32)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_25'
+      Nodes(33)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_26'
+      Nodes(34)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_27'
+      Nodes(35)=BehaviorTreeGraphNode_Task'BehaviorTreeGraphNode_Task_28'
+      SubGraphs(0)=BehaviorTreeDecoratorGraph'BehaviorTreeGraphNode_CompositeDecorator_0.CompositeDecorator'
+      SubGraphs(1)=BehaviorTreeDecoratorGraph'BehaviorTreeGraphNode_CompositeDecorator_1.CompositeDecorator'
+      SubGraphs(2)=BehaviorTreeDecoratorGraph'BehaviorTreeGraphNode_CompositeDecorator_6.CompositeDecorator'
+      GraphGuid=E2560AA84DE0507E16675D98D4917480
    End Object
    Begin Object Name="BTComposite_Selector_1"
-      Children(0)=(ChildComposite=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_2')
-      Children(1)=(ChildComposite=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_3')
-      NodeName="门与窗户平行"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_0'
+      Children(0)=(ChildComposite=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_3')
+      NodeName="A墙"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_0'
    End Object
    Begin Object Name="BTComposite_Selector_10"
-      Children(0)=(ChildTask=定义背景墙_C'决定A1背景墙:定义背景墙_C_5')
-      NodeName="窗户所在墙大于等于2800mm时"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_8'
+      Children(0)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_12',Decorators=(CustomDecorator_C'卧室布局行为树:CustomDecorator_C_4'))
+      Children(1)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_11',Decorators=(CustomDecorator_C'卧室布局行为树:CustomDecorator_C_5'))
+      NodeName=
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_9'
    End Object
    Begin Object Name="BTComposite_Selector_11"
-      Children(0)=(ChildTask=定义背景墙_C'决定A1背景墙:定义背景墙_C_6')
-      NodeName="窗户长度均大于900mm"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_13'
+      Children(0)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_5')
+      NodeName=
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_10'
    End Object
    Begin Object Name="BTComposite_Selector_12"
-      Children(0)=(ChildComposite=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_0')
-      Children(1)=(ChildComposite=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_7')
-      NodeName="决定背景墙"
-      TreeAsset=BehaviorTree'决定A1背景墙'
+      Children(0)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_4')
+      NodeName=
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_10'
    End Object
    Begin Object Name="BTComposite_Selector_13"
-      Children(0)=(ChildComposite=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_11')
-      NodeName="门与窗户垂直"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_7'
+      Children(0)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_6')
+      NodeName=
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_15'
+   End Object
+   Begin Object Name="BTComposite_Selector_14"
+      Children(0)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_2',Decorators=(CustomDecorator_C'卧室布局行为树:CustomDecorator_C_11'))
+      Children(1)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_9',Decorators=(CustomDecorator_C'卧室布局行为树:CustomDecorator_C_12'))
+      NodeName="决定背景墙"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_3'
+   End Object
+   Begin Object Name="BTComposite_Selector_15"
+      Children(0)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_13',Decorators=(CustomDecorator_C'卧室布局行为树:CustomDecorator_C_6'))
+      NodeName=
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_9'
    End Object
    Begin Object Name="BTComposite_Selector_2"
-      Children(0)=(ChildTask=定义背景墙_C'决定A1背景墙:定义背景墙_C_1')
-      NodeName="窗户所在墙小于2800mm"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_1'
+      Children(0)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_3',Decorators=(CustomDecorator_C'卧室布局行为树:CustomDecorator_C_7'))
+      Children(1)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_6',Decorators=(CustomDecorator_C'卧室布局行为树:CustomDecorator_C_8'))
+      NodeName=
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_14'
+   End Object
+   Begin Object Name="BTComposite_Selector_22"
+      NodeName="B墙"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_0'
+   End Object
+   Begin Object Name="BTComposite_Selector_23"
+      NodeName="C墙"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_0'
+   End Object
+   Begin Object Name="BTComposite_Selector_24"
+      NodeName="D墙"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_0'
    End Object
    Begin Object Name="BTComposite_Selector_3"
-      Children(0)=(ChildTask=定义背景墙_C'决定A1背景墙:定义背景墙_C_0')
-      NodeName="窗户所在墙大于等于2800mm"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_1'
+      Children(0)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_4',Decorators=(CustomDecorator_C'卧室布局行为树:CustomDecorator_C_0'))
+      Children(1)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_5',Decorators=(CustomDecorator_C'卧室布局行为树:CustomDecorator_C_1'))
+      NodeName=
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_2'
    End Object
    Begin Object Name="BTComposite_Selector_4"
-      Children(0)=(ChildComposite=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_6')
-      Children(1)=(ChildComposite=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_5')
-      NodeName="门与窗户垂直"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_0'
+      Children(0)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_0')
+      NodeName=
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_3'
    End Object
    Begin Object Name="BTComposite_Selector_5"
-      Children(0)=(ChildTask=定义背景墙_C'决定A1背景墙:定义背景墙_C_3')
-      NodeName="窗户所在墙小于2800mm时"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_4'
+      Children(0)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_1')
+      NodeName=
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_3'
    End Object
    Begin Object Name="BTComposite_Selector_6"
-      Children(0)=(ChildTask=定义背景墙_C'决定A1背景墙:定义背景墙_C_2')
-      NodeName="窗户所在墙大于等于2800mm"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_4'
+      Children(0)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_8',Decorators=(CustomDecorator_C'卧室布局行为树:CustomDecorator_C_2'))
+      Children(1)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_7',Decorators=(CustomDecorator_C'卧室布局行为树:CustomDecorator_C_3'))
+      NodeName=
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_2'
    End Object
    Begin Object Name="BTComposite_Selector_7"
-      Children(0)=(ChildComposite=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_8')
-      Children(1)=(ChildComposite=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_13')
-      NodeName="多窗卧室"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_12'
+      Children(0)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_3')
+      NodeName=
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_6'
    End Object
    Begin Object Name="BTComposite_Selector_8"
-      Children(0)=(ChildComposite=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_10')
-      Children(1)=(ChildComposite=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_9')
-      NodeName="门与窗平行时"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_7'
+      Children(0)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_2')
+      NodeName=
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_6'
    End Object
    Begin Object Name="BTComposite_Selector_9"
-      Children(0)=(ChildTask=定义背景墙_C'决定A1背景墙:定义背景墙_C_4')
-      NodeName="窗户所在墙小于2800mm时"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_8'
+      Children(0)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_10',Decorators=(CustomDecorator_C'卧室布局行为树:CustomDecorator_C_9'))
+      Children(1)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_15',Decorators=(CustomDecorator_C'卧室布局行为树:CustomDecorator_C_10'))
+      NodeName=
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_14'
    End Object
-   Begin Object Name="定义背景墙_C_0"
+   Begin Object Name="BTComposite_Sequence_0"
+      Children(0)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_1')
+      Children(1)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_22')
+      Children(2)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_23')
+      Children(3)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_24')
+      TreeAsset=BehaviorTree'卧室布局行为树'
+   End Object
+   Begin Object Name="BTComposite_Sequence_3"
+      Children(0)=(ChildComposite=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_14')
+      Children(1)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_10')
+      Children(2)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_11')
+      Children(3)=(ChildComposite=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_4')
+      Children(4)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_16')
+      Children(5)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_15')
+      NodeName="A1"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_1'
+   End Object
+   Begin Object Name="BTComposite_Sequence_4"
+      Children(0)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_12')
+      Children(1)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_13')
+      Children(2)=(ChildTask=CustomTask_C'卧室布局行为树:CustomTask_C_14')
+      NodeName="设置床"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_3'
+   End Object
+   Begin Object Name="CustomTask_C_0"
+      定义规则=NSLOCTEXT("", "2C55ADAB481C3CA92296B9B197AF653A", "背景墙为远离门的无窗无门墙")
+      NodeName="背景墙为远离门的无窗无门墙"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_4'
+   End Object
+   Begin Object Name="CustomTask_C_1"
       NodeName="背景墙为门所在的墙"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_3'
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_5'
    End Object
-   Begin Object Name="定义背景墙_C_1"
+   Begin Object Name="CustomTask_C_10"
+      NodeName="定义衣柜宽度"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_3'
+   End Object
+   Begin Object Name="CustomTask_C_11"
+      NodeName="定义窗帘宽度"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_3'
+   End Object
+   Begin Object Name="CustomTask_C_12"
+      NodeName="背面与背景墙（AA墙）吸附"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_4'
+   End Object
+   Begin Object Name="CustomTask_C_13"
+      NodeName="定义床与床头柜宽度"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_4'
+   End Object
+   Begin Object Name="CustomTask_C_14"
+      NodeName="底面与地面吸附"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_4'
+   End Object
+   Begin Object Name="CustomTask_C_15"
+      NodeName="组合品中心线与背景墙（AA墙）长度减去窗帘厚度，减去衣柜厚度后中线重合"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_3'
+   End Object
+   Begin Object Name="CustomTask_C_16"
+      NodeName="重合中线随背景墙（AA墙）长度变化而改变"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Sequence'卧室布局行为树:BTComposite_Sequence_3'
+   End Object
+   Begin Object Name="CustomTask_C_2"
       NodeName="背景墙为远离门的无窗无门墙"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_2'
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_8'
    End Object
-   Begin Object Name="定义背景墙_C_2"
-      NodeName="背景墙为远离门的无窗无门墙"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_6'
-   End Object
-   Begin Object Name="定义背景墙_C_3"
+   Begin Object Name="CustomTask_C_3"
       NodeName="背景墙为接近门的无窗无门墙"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_5'
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_7'
    End Object
-   Begin Object Name="定义背景墙_C_4"
-      NodeName="背景墙为门所在墙"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_9'
-   End Object
-   Begin Object Name="定义背景墙_C_5"
+   Begin Object Name="CustomTask_C_4"
       NodeName="背景墙为小窗所在墙"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_10'
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_12'
    End Object
-   Begin Object Name="定义背景墙_C_6"
+   Begin Object Name="CustomTask_C_5"
       NodeName="背景墙为门所在墙"
-      TreeAsset=BehaviorTree'决定A1背景墙'
-      ParentNode=BTComposite_Selector'决定A1背景墙:BTComposite_Selector_11'
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_11'
    End Object
-   RootNode=BTComposite_Selector'BTComposite_Selector_12'
+   Begin Object Name="CustomTask_C_6"
+      NodeName="背景墙为门所在墙"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_13'
+   End Object
+   Begin Object Name="CustomDecorator_C_9"
+      NodeName="门与窗平行时"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_9'
+   End Object
+   Begin Object Name="CustomDecorator_C_8"
+      NodeName="门与窗户垂直"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_2'
+   End Object
+   Begin Object Name="CustomDecorator_C_7"
+      NodeName="门与窗户平行"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_2'
+   End Object
+   Begin Object Name="CustomDecorator_C_6"
+      NodeName="窗户长度均大于900mm"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_15'
+   End Object
+   Begin Object Name="CustomDecorator_C_5"
+      NodeName="窗户所在墙小于2800mm时"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_10'
+   End Object
+   Begin Object Name="CustomDecorator_C_4"
+      NodeName="窗户所在墙大于等于2800mm时"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_10'
+   End Object
+   Begin Object Name="CustomDecorator_C_3"
+      NodeName="窗户所在墙小于2800mm时"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_6'
+   End Object
+   Begin Object Name="CustomDecorator_C_2"
+      NodeName="窗户所在墙大于等于2800mm"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_6'
+   End Object
+   Begin Object Name="CustomDecorator_C_12"
+      NodeName="多窗卧室"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_14'
+   End Object
+   Begin Object Name="CustomDecorator_C_11"
+      NodeName="单窗房间"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_14'
+   End Object
+   Begin Object Name="CustomDecorator_C_10"
+      NodeName="门与窗户垂直"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_9'
+   End Object
+   Begin Object Name="CustomDecorator_C_1"
+      NodeName="窗户所在墙大于等于2800mm"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_3'
+   End Object
+   Begin Object Name="CustomDecorator_C_0"
+      NodeName="窗户所在墙小于2800mm"
+      TreeAsset=BehaviorTree'卧室布局行为树'
+      ParentNode=BTComposite_Selector'卧室布局行为树:BTComposite_Selector_3'
+   End Object
+   RootNode=BTComposite_Sequence'BTComposite_Sequence_0'
    BTGraph=BehaviorTreeGraph'"Behavior Tree"'
-   LastEditedDocuments(0)=(EditedObject=BehaviorTreeGraph'"Behavior Tree"',SavedViewOffset=(X=-211.500000,Y=-367.500000),SavedZoomAmount=0.500000)
+   LastEditedDocuments(0)=(EditedObject=BehaviorTreeGraph'"Behavior Tree"',SavedViewOffset=(X=-2275.218018,Y=1192.840820),SavedZoomAmount=0.500000)
    BlackboardAsset=BlackboardData'/Game/自动布局/卧室自动布局黑板.卧室自动布局黑板'
 End Object
-
-
-
 
 
     </textarea>
