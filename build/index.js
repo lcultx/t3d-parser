@@ -284,6 +284,22 @@ var CustomNode = (function (_super) {
             if (!isNaN(val)) {
                 val = parseFloat(val);
             }
+            else {
+                if (val.indexOf('NSLOCTEXT') > -1) {
+                    var r = /([^"]*)"\)/;
+                    if (r.test(val)) {
+                        var v = r.exec(val);
+                        val = v[1];
+                    }
+                }
+                if (val.indexOf('"') > -1) {
+                    var r = /"(.*)"/;
+                    if (r.test(val)) {
+                        var v = r.exec(val);
+                        val = v[1];
+                    }
+                }
+            }
             this.args[key] = val;
         }
     };

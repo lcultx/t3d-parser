@@ -19,7 +19,7 @@ class T3D {
 
     public isRoot: boolean = false;
 
-    public decorators:Array<T3D> = [];
+    public decorators: Array<T3D> = [];
 
     public children: Array<T3D> = [];
 
@@ -100,17 +100,17 @@ class T3D {
     private parseChildLine(line: string) {
         var reg = /Children\((\d+)\)=\(([^=]*)=([^']*)'((.*)\:(.*))'\)/
         var decorators = [];
-        if(line.indexOf('Decorators') > -1){
+        if (line.indexOf('Decorators') > -1) {
             //TODO 支持多个装饰器
             var dreg = /Decorators=([^']*)'((.*)\:(.*))'/
             var res = dreg.exec(line);
             var name = res[4];
             var node = this.getNodeByName(name);
-            decorators.push(node);            
-            line = line.replace(/,Decorators.*'\)/,'')
+            decorators.push(node);
+            line = line.replace(/,Decorators.*'\)/, '')
         }
 
-      
+
         if (reg.test(line)) {
             var res = reg.exec(line);
             var order = parseInt(res[1]);
@@ -204,8 +204,8 @@ class BTComposite_Selector extends T3D {
     }
 }
 
-class BTDecorator_Blackboard extends T3D{
-    public parseLine(line:string){
+class BTDecorator_Blackboard extends T3D {
+    public parseLine(line: string) {
         super.parseLine(line);
         console.log(line)
     }
@@ -266,7 +266,23 @@ class CustomNode extends T3D {
             var val: any = res[2];
             if (!isNaN(val)) {
                 val = parseFloat(val)
+            } else {
+                if (val.indexOf('NSLOCTEXT') > -1) {
+                    var r = /([^"]*)"\)/;
+                    if (r.test(val)) {
+                        var v = r.exec(val);
+                        val = v[1];
+                    }
+                }
+                if (val.indexOf('"') > -1) {
+                    var r = /"(.*)"/;
+                    if (r.test(val)) {
+                        var v = r.exec(val);
+                        val = v[1];
+                    }
+                }
             }
+
             this.args[key] = val;
         }
     }
@@ -296,7 +312,7 @@ var sysClazzes = {
 
     , BehaviorTreeGraphNode_Task: BehaviorTreeGraphNode_Task
     , BlackboardData: BlackboardData
- //   , BTDecorator_Blackboard:BTDecorator_Blackboard
+    //   , BTDecorator_Blackboard:BTDecorator_Blackboard
 }
 
 class Parser {
@@ -453,7 +469,7 @@ class Parser {
         //if(node.children.length > 0){
         json.children = [];
         json.decorators = [];
-    
+
         node.children.forEach((item) => {
             json.children.push(this.node2Json(item))
         })
