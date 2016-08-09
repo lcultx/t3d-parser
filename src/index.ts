@@ -101,12 +101,28 @@ class T3D {
         var reg = /Children\((\d+)\)=\(([^=]*)=([^']*)'((.*)\:(.*))'\)/
         var decorators = [];
         if (line.indexOf('Decorators') > -1) {
-            //TODO 支持多个装饰器
+            
             var dreg = /Decorators=([^']*)'((.*)\:(.*))'/
             var res = dreg.exec(line);
-            var name = res[4];
-            var node = this.getNodeByName(name);
-            decorators.push(node);
+            if(res[0].indexOf('\',')>-1){
+               var r = /^Decorators=\((.*\')/;
+               var l = r.exec(res[0]);
+               var list = l[1].split(',');
+               for(var i in list){
+                  var d = list[i];
+                  var getNameReg = /:(.*)'/
+                  var getNameResList = getNameReg.exec(d);
+                  var name = getNameResList[1];
+                  var node = this.getNodeByName(name);
+                  decorators.push(node);
+               }
+               
+            }else{
+               var name = res[4];
+               var node = this.getNodeByName(name);
+               decorators.push(node);
+            }
+         
             line = line.replace(/,Decorators.*'\)/, '')
         }
 

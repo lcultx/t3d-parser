@@ -10,7 +10,7 @@
       "suppressImplicitAnyIndexErrors": true,
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
-      "sourceMap": false,
+      "sourceMap": true,
       "noImplicitUseStrict": true,
       "jsx": "react",
       "declaration":true,
