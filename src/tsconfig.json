@@ -13,7 +13,7 @@
       "sourceMap": true,
       "noImplicitUseStrict": true,
       "jsx": "react",
-      "declaration":true,
+      "declaration":false,
       "outDir": "../build"
    },
    "formatCodeOptions": {
